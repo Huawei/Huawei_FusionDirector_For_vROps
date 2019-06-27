@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<modules>     
+
+  <module name="RopsForFD-java" language="C#" fileexts="*.java">  
+
+              <include path="src"/>
+
+              <base path=""/>
+
+           <exclude path=""/>
+
+  </module>
+  
+    <module name="RopsForFD-xml" language="C#" fileexts="*.xml">   
+
+              <include path="src"/>
+
+              <base path=""/>
+
+           <exclude path=""/>
+
+  </module>
+</modules>

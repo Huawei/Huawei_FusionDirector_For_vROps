@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Content>
+    <Views>
+        <ViewDef id="ffb971bc-1403-4fc4-8119-c2aa2bf0eae0">
+            <Title localizationKey="view.title">Huawei Memory View</Title>
+            <Description localizationKey="view.desc"/>
+            <SubjectType adapterKind="FusionDirectorAdapter" resourceKind="memory" type="descendant"/>
+            <SubjectType adapterKind="FusionDirectorAdapter" resourceKind="memory" type="self"/>
+            <Usage>dashboard</Usage>
+            <Usage>report</Usage>
+            <Usage>details</Usage>
+            <Usage>content</Usage>
+            <Controls>
+                <Control id="time-interval-selector_id_6" type="time-interval-selector" visible="false">
+                    <Property name="advancedTimeMode" value="false"/>
+                    <Property name="unit" value="DAYS"/>
+                    <Property name="count" value="7"/>
+                </Control>
+                <Control id="attributes-selector_id_7" type="attributes-selector" visible="false">
+                    <Property name="attributeInfos">
+                        <List>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="manufacturer"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="deviceID"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="id"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="name"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="capacity"/>
+    <Property name="isStringAttribute" value="false"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpType" value="NONE"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="false"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="dataWidthBits"/>
+    <Property name="isStringAttribute" value="false"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpType" value="NONE"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="false"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="memoryDeviceType"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="minVoltage"/>
+    <Property name="isStringAttribute" value="false"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="operatingSpeed"/>
+    <Property name="isStringAttribute" value="false"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="partNumber"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="position"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="serialNumber"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="technology"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="healthStatus"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="false"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="healthState"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="memory"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="false"/>
+</Value>
+                            </Item>
+                        </List>
+                    </Property>
+                </Control>
+                <Control id="pagination-control_id_8" type="pagination-control" visible="true">
+                    <Property name="start" value="0"/>
+                    <Property name="size" value="50"/>
+                </Control>
+            </Controls>
+            <DataProviders>
+                <DataProvider dataType="list-view" id="list-view_id_5"/>
+            </DataProviders>
+            <Presentation type="list"/>
+        </ViewDef>
+    </Views>
+</Content>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="src" path="/FusionDirectorAdapter"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/project/FusionDirector/mosai_gitlab/fd-vrealize-plugin/third_party/management-pack-lib/ant-contrib-1.0b3.jar"/>
+	<classpathentry kind="lib" path="D:/project/FusionDirector/mosai_gitlab/fd-vrealize-plugin/third_party/management-pack-lib/xmltask.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

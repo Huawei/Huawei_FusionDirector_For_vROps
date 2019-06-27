@@ -1,0 +1,104 @@
+{
+   "dashboards": [{
+      "autoswitchEnabled": false,
+      "columnCount": 1,
+      "columnProportion": "1",
+      "creationTime": 1551781265218,
+      "description": "",
+      "disabled": false,
+      "hidden": false,
+      "homeTab": false,
+      "id": "4d6c1f01-1a40-4784-a38c-e9ae7cff5a37",
+      "importAttempts": 0,
+      "importComplete": true,
+      "isDefault": false,
+      "locked": false,
+      "name": "Huawei Fusion Director Dashboards/Fusion Director Overview Dashboard",
+      "namePath": "Huawei Fusion Director Dashboards",
+      "rank": 0,
+      "shared": false,
+      "temporary": false,
+      "userId": "760cd571-7261-4093-a520-0e4b3dcf94bb",
+      "widgetInteractions": [],
+      "widgets": [{
+         "collapsed": false,
+         "config": {
+            "additionalColumns": [
+               {
+                  "boxLabel": "",
+                  "metricKey": "serverIP",
+                  "metricName": "Server IP",
+                  "resourceKindId": "resourceKind:id:0_::_"
+               },
+               {
+                  "boxLabel": "",
+                  "metricKey": "port",
+                  "metricName": "Port",
+                  "resourceKindId": "resourceKind:id:0_::_"
+               },
+               {
+                  "boxLabel": "",
+                  "metricKey": "state",
+                  "metricName": "State",
+                  "resourceKindId": "resourceKind:id:0_::_"
+               },
+               {
+                  "boxLabel": "",
+                  "metricKey": "version",
+                  "metricName": "FusionDirector Version",
+                  "resourceKindId": "resourceKind:id:0_::_"
+               },
+               {
+                  "boxLabel": "",
+                  "metricKey": "classifyMethod",
+                  "metricName": "Classify Method",
+                  "resourceKindId": "resourceKind:id:0_::_"
+               }
+            ],
+            "mode": 0,
+            "refreshContent": {"refreshContent": false},
+            "refreshInterval": 300,
+            "selectFirstRow": {"selectFirstRow": false},
+            "tagFilter": {
+               "path": ["/source/instanceKind/instanceKind:resourceKind:id:0_::_"],
+               "value": {
+                  "adapterInstance": [],
+                  "adapterKind": [],
+                  "bus": [],
+                  "collector": [],
+                  "day": [],
+                  "exclaim": false,
+                  "healthRange": [],
+                  "kind": ["resourceKind:id:0_::_"],
+                  "maintenanceSchedule": [],
+                  "state": [],
+                  "status": [],
+                  "tag": [],
+                  "tier": []
+               }
+            },
+            "title": "Fusion Director List"
+         },
+         "gridsterCoords": {
+            "h": 6,
+            "w": 6,
+            "x": 1,
+            "y": 1
+         },
+         "height": 206,
+         "id": "9bf5feef-0661-49ca-b569-dd52669c56af",
+         "states": [{
+            "key": "permResGrid_widget_4d6c1f01-1a40-4784-a38c-e9ae7cff5a37_9bf5feef-0661-49ca-b569-dd52669c56af",
+            "value": "o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Ah1%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah2%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah3%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah4%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah5%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah6%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah7%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah8%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah9%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah10%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah11%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah12%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah13%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah14%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah15%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah16%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah17%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah18%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A243%255Eo%25253Aid%25253Ds%2525253Ah19%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah20%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A299%255Eo%25253Aid%25253Ds%2525253Ah21%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A240%255Eo%25253Aid%25253Ds%2525253Ah22%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah23%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah24%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah25%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah26%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah27%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah28%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah29%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah30%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah31%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah32%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah33%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah34%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah35%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah36%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah37%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah38%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah39%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah40%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah41%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah42%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah43%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah44%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah45%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah46%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100"
+         }],
+         "title": "Fusion Director List",
+         "type": "ResourceList"
+      }]
+   }],
+   "entries": {"resourceKind": [{
+      "adapterKindKey": "FusionDirectorAdapter",
+      "internalId": "resourceKind:id:0_::_",
+      "resourceKindKey": "FusionDirectorAdapterInstance"
+   }]},
+   "uuid": "6bc5dabd-2efe-4d5f-8c44-0ddff2c4f294"
+}

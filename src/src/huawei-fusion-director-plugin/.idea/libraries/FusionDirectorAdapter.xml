@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="FusionDirectorAdapter">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build/deploy/FusionDirectorAdapter.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

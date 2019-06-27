@@ -1,0 +1,125 @@
+{
+   "dashboards": [{
+      "autoswitchEnabled": false,
+      "columnCount": 1,
+      "columnProportion": "1",
+      "creationTime": 1552564906623,
+      "description": "",
+      "disabled": false,
+      "hidden": false,
+      "homeTab": false,
+      "id": "1c77ab0f-5f9e-4f40-a8a2-7b3e3a7fa584",
+      "importAttempts": 0,
+      "importComplete": true,
+      "isDefault": false,
+      "locked": false,
+      "name": "Huawei Fusion Director Dashboards/Huawei Enclosure Overview Dashboard",
+      "namePath": "Huawei Fusion Director Dashboards",
+      "rank": 3,
+      "shared": true,
+      "temporary": false,
+      "userId": "a366f187-ed85-4db7-8fad-5f501003af23",
+      "widgetInteractions": [{
+         "type": "resourceId",
+         "widgetIdProvider": "70756133-90e8-4a32-b1d6-ef742d448280",
+         "widgetIdReceiver": "8565076c-be5d-4cbc-b868-5aea8501f6d3"
+      }],
+      "widgets": [
+         {
+            "collapsed": false,
+            "config": {
+               "impactedBadge": "",
+               "refreshContent": {"refreshContent": true},
+               "refreshInterval": 30,
+               "selfProvider": {"selfProvider": false},
+               "title": "Enclosure Latest Alerts",
+               "topIssuesDisplayLimit": 15,
+               "triggeredObject": {"triggeredObject": "selfChildren"}
+            },
+            "gridsterCoords": {
+               "h": 6,
+               "w": 3,
+               "x": 4,
+               "y": 1
+            },
+            "height": 324,
+            "id": "8565076c-be5d-4cbc-b868-5aea8501f6d3",
+            "title": "Enclosure Latest Alerts",
+            "type": "ProblemAlertsList"
+         },
+         {
+            "collapsed": false,
+            "config": {
+               "configs": [{
+                  "attributeKind": {
+                     "id": "healthEnum",
+                     "value": "Health Enum"
+                  },
+                  "attributePaths": ["/root/healthEnum"],
+                  "color": {"maxValue": "4",
+                     "minValue": "0",
+                     "endColor": "FF0000",
+                     "middleColor": "FFFF00",
+                     "startColor": "008000"
+                  },
+                  "colorBy": {
+                     "metricKey": "healthEnum",
+                     "value": "Health Enum"
+                  },
+                  "focusOnGroups": true,
+                  "groupBy": {
+                     "id": "004null002021FusionDirectorAdapterenclosureInstance",
+                     "parentId": "FusionDirectorAdapter",
+                     "parentText": "FusionDirectorAdapter",
+                     "text": "FusionDirector (Enclosure)",
+                     "type": "resourceKind",
+                     "typeId": "resourceKind:id:0_::_"
+                  },
+                  "mode": {"mode": false},
+                  "name": "Enclosure Health Overview",
+                  "relationalGrouping": false,
+                  "resourceKind": "resourceKind:id:1_::_",
+                  "sizeBy": {
+                     "metricKey": null,
+                     "value": ""
+                  },
+                  "solidColoring": false,
+                  "tagFilter": null,
+                  "thenBy": null
+               }],
+               "refreshContent": {"refreshContent": false},
+               "refreshInterval": 300,
+               "title": "Enclosure Environmental Health",
+               "value": 0
+            },
+            "gridsterCoords": {
+               "h": 6,
+               "w": 3,
+               "x": 1,
+               "y": 1
+            },
+            "height": 324,
+            "id": "70756133-90e8-4a32-b1d6-ef742d448280",
+            "states": [{
+               "key": "perm_HeatMap_widget_1c77ab0f-5f9e-4f40-a8a2-7b3e3a7fa584_70756133-90e8-4a32-b1d6-ef742d448280",
+               "value": "o%3A"
+            }],
+            "title": "Enclosure Environmental Health",
+            "type": "Heatmap"
+         }
+      ]
+   }],
+   "entries": {"resourceKind": [
+      {
+         "adapterKindKey": "FusionDirectorAdapter",
+         "internalId": "resourceKind:id:0_::_",
+         "resourceKindKey": "enclosureInstance"
+      },
+      {
+         "adapterKindKey": "FusionDirectorAdapter",
+         "internalId": "resourceKind:id:1_::_",
+         "resourceKindKey": "enclosure"
+      }
+   ]},
+   "uuid": "6b59b2de-bb24-4c3d-9d5e-3035d22177cc"
+}

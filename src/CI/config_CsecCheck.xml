@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modulelist>
+	<module name="huawei-fusion-director-management-pack">
+		<filepath>/src/huawei-fusion-director-management-pack</filepath>
+		<owner>cwx507252</owner>
+	</module>
+	<module name="huawei-fusion-director-plugin">
+		<filepath>/src/huawei-fusion-director-plugin</filepath>
+		<owner>cwx507252</owner>
+	</module>
+</modulelist>

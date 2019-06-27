@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>HuaweiFusionDirectorManagementPack</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.vmware.vrops.mpe.mpbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.vmware.vrops.mpe.mpnature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>FusionDirectorAdapter</name>
+			<type>2</type>
+			<location>D:/project/FusionDirector/mosai_gitlab/fd-vrealize-plugin/src/huawei-fusion-director-plugin</location>
+		</link>
+	</linkedResources>
+</projectDescription>

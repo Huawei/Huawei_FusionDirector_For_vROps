@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Content>
+    <Views>
+        <ViewDef id="ecb8b2a1-af87-4762-b61d-c8cb4224edf2">
+            <Title localizationKey="view.title">Huawei PCIe View</Title>
+            <Description localizationKey="view.desc"/>
+            <SubjectType adapterKind="FusionDirectorAdapter" resourceKind="pcie" type="descendant"/>
+            <SubjectType adapterKind="FusionDirectorAdapter" resourceKind="pcie" type="self"/>
+            <Usage>dashboard</Usage>
+            <Usage>report</Usage>
+            <Usage>details</Usage>
+            <Usage>content</Usage>
+            <Controls>
+                <Control id="time-interval-selector_id_60" type="time-interval-selector" visible="false">
+                    <Property name="advancedTimeMode" value="false"/>
+                    <Property name="unit" value="DAYS"/>
+                    <Property name="count" value="7"/>
+                </Control>
+                <Control id="attributes-selector_id_61" type="attributes-selector" visible="false">
+                    <Property name="attributeInfos">
+                        <List>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="deviceID"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="description"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="firmwareVersion"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="id"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="manufacturer"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="model"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="modelType"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="serialNumber"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="healthStatus"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="false"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="healthState"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="false"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="deviceLocator"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="position"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="power"/>
+    <Property name="isStringAttribute" value="false"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                            <Item>
+<Value>
+    <Property name="objectType" value="RESOURCE"/>
+    <Property name="attributeKey" value="functionType"/>
+    <Property name="isStringAttribute" value="true"/>
+    <Property name="adapterKind" value="FusionDirectorAdapter"/>
+    <Property name="resourceKind" value="pcie"/>
+    <Property name="rollUpCount" value="0"/>
+    <Property name="transformations">
+        <List>
+            <Item value="LAST"/>
+        </List>
+    </Property>
+    <Property name="isProperty" value="true"/>
+</Value>
+                            </Item>
+                        </List>
+                    </Property>
+                </Control>
+                <Control id="pagination-control_id_62" type="pagination-control" visible="true">
+                    <Property name="start" value="0"/>
+                    <Property name="size" value="50"/>
+                </Control>
+            </Controls>
+            <DataProviders>
+                <DataProvider dataType="list-view" id="list-view_id_59"/>
+            </DataProviders>
+            <Presentation type="list"/>
+        </ViewDef>
+    </Views>
+</Content>

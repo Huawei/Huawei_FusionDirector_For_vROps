@@ -1,0 +1,226 @@
+{
+   "dashboards": [{
+      "autoswitchEnabled": false,
+      "columnCount": 1,
+      "columnProportion": "1",
+      "creationTime": 1552144834504,
+      "description": "",
+      "disabled": false,
+      "hidden": false,
+      "homeTab": false,
+      "id": "2763d131-f87f-4284-82ea-c3d036624248",
+      "importAttempts": 0,
+      "importComplete": true,
+      "isDefault": false,
+      "locked": false,
+      "name": "Huawei Fusion Director Dashboards/Huawei Server Detailed Dashboard",
+      "namePath": "Huawei Fusion Director Dashboards",
+      "rank": 2,
+      "shared": true,
+      "temporary": false,
+      "userId": "0fb799bf-2a35-4fe6-a0ce-cf10e6a4d1a4",
+      "widgetInteractions": [
+         {
+            "type": "resourceId",
+            "widgetIdProvider": "6a63ebcc-10a0-42c5-8b6c-c2a7d488b5e0",
+            "widgetIdReceiver": "12df8121-9ace-495f-b81c-8f94d4932c53"
+         },
+         {
+            "type": "resourceId",
+            "widgetIdProvider": "6a63ebcc-10a0-42c5-8b6c-c2a7d488b5e0",
+            "widgetIdReceiver": "8dad3261-60b3-4f1b-96f5-925f778d2a08"
+         },
+         {
+            "type": "resourceId",
+            "widgetIdProvider": "6a63ebcc-10a0-42c5-8b6c-c2a7d488b5e0",
+            "widgetIdReceiver": "bba3c870-ea48-4361-b91d-a6176a69f0f0"
+         }
+      ],
+      "widgets": [
+         {
+            "collapsed": false,
+            "config": {},
+            "gridsterCoords": {
+               "h": 6,
+               "w": 3,
+               "x": 1,
+               "y": 6
+            },
+            "height": 324,
+            "id": "12df8121-9ace-495f-b81c-8f94d4932c53",
+            "states": [{
+               "key": "permResourceRelationship_widget_2763d131-f87f-4284-82ea-c3d036624248_12df8121-9ace-495f-b81c-8f94d4932c53",
+               "value": "o%3A"
+            }],
+            "title": "Object Relationship",
+            "type": "ResourceRelationship"
+         },
+         {
+            "collapsed": false,
+            "config": {
+               "impactedBadge": "",
+               "refreshContent": {"refreshContent": true},
+               "refreshInterval": 30,
+               "selfProvider": {"selfProvider": false},
+               "title": "Top Alerts",
+               "topIssuesDisplayLimit": 50,
+               "triggeredObject": {"triggeredObject": "selfChildren"}
+            },
+            "gridsterCoords": {
+               "h": 6,
+               "w": 3,
+               "x": 4,
+               "y": 6
+            },
+            "height": 324,
+            "id": "8dad3261-60b3-4f1b-96f5-925f778d2a08",
+            "title": "Top Alerts",
+            "type": "ProblemAlertsList"
+         },
+         {
+            "collapsed": false,
+            "config": {
+               "metric": {
+                  "mode": "resourceKind",
+                  "resourceKindMetrics": [{
+                     "colorMethod": 1,
+                     "id": "extModel1562-1",
+                     "isStringMetric": false,
+                     "metricKey": "powerConsumed",
+                     "metricName": "Power Consumed (Watts)",
+                     "metricUnitId": null,
+                     "resourceKindId": "resourceKind:id:0_::_",
+                     "resourceKindName": "Node",
+                     "unit": null
+                  }],
+                  "resourceMetrics": []
+               },
+               "refreshContent": {"refreshContent": true},
+               "refreshInterval": 300,
+               "relationshipMode": 0,
+               "resInteractionMode": null,
+               "selfProvider": {"selfProvider": false},
+               "title": "Huawei Server Metric Chart"
+            },
+            "gridsterCoords": {
+               "h": 5,
+               "w": 6,
+               "x": 1,
+               "y": 12
+            },
+            "height": 267,
+            "id": "bba3c870-ea48-4361-b91d-a6176a69f0f0",
+            "states": [
+               {
+                  "key": "perm_toolbarVisible_widget_2763d131-f87f-4284-82ea-c3d036624248_bba3c870-ea48-4361-b91d-a6176a69f0f0",
+                  "value": "b%3A1"
+               },
+               {
+                  "key": "permDateRange1_permMetricChart_widget_2763d131-f87f-4284-82ea-c3d036624248_bba3c870-ea48-4361-b91d-a6176a69f0f0",
+                  "value": "s%3A%7B%22dateRange%22%3A%22last6Hour%22%2C%22dateFrom%22%3Anull%2C%22dateTo%22%3Anull%2C%22timeFrom%22%3Anull%2C%22timeTo%22%3Anull%7D"
+               },
+               {
+                  "key": "permBtn_pan_permMetricChart_widget_2763d131-f87f-4284-82ea-c3d036624248_bba3c870-ea48-4361-b91d-a6176a69f0f0",
+                  "value": "b%3A0"
+               },
+               {
+                  "key": "permMetricChart_widget_2763d131-f87f-4284-82ea-c3d036624248_bba3c870-ea48-4361-b91d-a6176a69f0f0",
+                  "value": "o%3A"
+               },
+               {
+                  "key": "permBtn_zoomAllGraphs_permMetricChart_widget_2763d131-f87f-4284-82ea-c3d036624248_bba3c870-ea48-4361-b91d-a6176a69f0f0",
+                  "value": "b%3A0"
+               }
+            ],
+            "title": "Huawei Server Metric Chart",
+            "type": "MetricChart"
+         },
+         {
+            "collapsed": false,
+            "config": {
+               "additionalColumns": [
+                  {
+                     "boxLabel": "",
+                     "metricKey": "serverState",
+                     "metricName": "Server State",
+                     "resourceKindId": "resourceKind:id:0_::_"
+                  },
+                  {
+                     "boxLabel": "",
+                     "metricKey": "IPv4Address",
+                     "metricName": "IP v4 address",
+                     "resourceKindId": "resourceKind:id:0_::_"
+                  },
+                  {
+                     "boxLabel": "",
+                     "metricKey": "model",
+                     "metricName": "Model",
+                     "resourceKindId": "resourceKind:id:0_::_"
+                  },
+                  {
+                     "boxLabel": "",
+                     "metricKey": "tag",
+                     "metricName": "Tag",
+                     "resourceKindId": "resourceKind:id:0_::_"
+                  },
+                  {
+                     "boxLabel": "",
+                     "metricKey": "healthStatus",
+                     "metricName": "Health",
+                     "resourceKindId": "resourceKind:id:0_::_"
+                  }
+               ],
+               "mode": 0,
+               "refreshContent": {"refreshContent": true},
+               "refreshInterval": 300,
+               "selectFirstRow": {"selectFirstRow": false},
+               "tagFilter": {
+                  "path": ["/source/kind/kind:resourceKind:id:0_::_"],
+                  "value": {
+                     "adapterInstance": [],
+                     "adapterKind": [],
+                     "bus": [],
+                     "collector": [],
+                     "day": [],
+                     "exclaim": false,
+                     "healthRange": [],
+                     "kind": ["resourceKind:id:0_::_"],
+                     "maintenanceSchedule": [],
+                     "state": [],
+                     "status": [],
+                     "tag": [],
+                     "tier": []
+                  }
+               },
+               "title": "Huawei Server List"
+            },
+            "gridsterCoords": {
+               "h": 5,
+               "w": 6,
+               "x": 1,
+               "y": 1
+            },
+            "height": 267,
+            "id": "6a63ebcc-10a0-42c5-8b6c-c2a7d488b5e0",
+            "states": [
+               {
+                  "key": "permResGrid_widget_2763d131-f87f-4284-82ea-c3d036624248_6a63ebcc-10a0-42c5-8b6c-c2a7d488b5e0",
+                  "value": "o%3Acolumns%3Da%253Ao%25253Aid%25253Ds%2525253Ah1%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah2%255Eo%25253Aid%25253Ds%2525253Ah3%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah4%25255Ewidth%25253Dn%2525253A288%255Eo%25253Aid%25253Ds%2525253Ah5%25255Ewidth%25253Dn%2525253A275%255Eo%25253Aid%25253Ds%2525253Ah6%255Eo%25253Aid%25253Ds%2525253Ah7%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah8%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah9%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah10%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah11%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah12%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah13%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah14%255Eo%25253Aid%25253Ds%2525253Ah15%25255Ehidden%25253Db%2525253A0%255Eo%25253Aid%25253Ds%2525253Ah16%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah17%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah18%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah19%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah20%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah21%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah22%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah23%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah24%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah25%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah26%25255Ehidden%25253Db%2525253A0%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah27%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah28%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah29%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah30%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah31%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah32%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah33%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah34%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah35%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah36%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah37%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah38%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah39%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah40%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah41%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah42%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah43%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah44%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah45%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100%255Eo%25253Aid%25253Ds%2525253Ah46%25255Ehidden%25253Db%2525253A1%25255Ewidth%25253Dn%2525253A100"
+               },
+               {
+                  "key": "perm_toolbarVisible_widget_2763d131-f87f-4284-82ea-c3d036624248_6a63ebcc-10a0-42c5-8b6c-c2a7d488b5e0",
+                  "value": "b%3A1"
+               }
+            ],
+            "title": "Huawei Server List",
+            "type": "ResourceList"
+         }
+      ]
+   }],
+   "entries": {"resourceKind": [{
+      "adapterKindKey": "FusionDirectorAdapter",
+      "internalId": "resourceKind:id:0_::_",
+      "resourceKindKey": "node"
+   }]},
+   "uuid": "3581aec7-55c1-462b-aba5-be75fec7848d"
+}

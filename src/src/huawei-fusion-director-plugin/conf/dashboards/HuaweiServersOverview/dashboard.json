@@ -1,0 +1,423 @@
+{
+   "dashboards": [{
+      "autoswitchEnabled": false,
+      "columnCount": 1,
+      "columnProportion": "1",
+      "creationTime": 1552998872866,
+      "description": "",
+      "disabled": false,
+      "hidden": false,
+      "homeTab": false,
+      "id": "c74e6292-1b2d-4e3b-9fed-27acc02c729a",
+      "importAttempts": 0,
+      "importComplete": true,
+      "isDefault": false,
+      "locked": false,
+      "name": "Huawei Fusion Director Dashboards/Huawei Servers Overview Dashboard",
+      "namePath": "Huawei Fusion Director Dashboards",
+      "rank": 1,
+      "shared": true,
+      "temporary": false,
+      "userId": "4853a68d-ff9c-498f-b173-0872f9e9006e",
+      "widgetInteractions": [
+         {
+            "type": "resourceId",
+            "widgetIdProvider": "c52695a5-2053-4588-997f-12860e4353d7",
+            "widgetIdReceiver": "716bec6d-233a-449b-90dc-200a95145ae5"
+         },
+         {
+            "type": "resourceId",
+            "widgetIdProvider": "e0d58837-8e99-4da9-91c7-e658044ba856",
+            "widgetIdReceiver": "68836f81-40b3-4299-8166-ce2f83810287"
+         },
+         {
+            "type": "metricId",
+            "widgetIdProvider": "e0d58837-8e99-4da9-91c7-e658044ba856",
+            "widgetIdReceiver": "68836f81-40b3-4299-8166-ce2f83810287"
+         },
+         {
+            "type": "resourceId",
+            "widgetIdProvider": "5820a0cb-c345-4dcc-a1c6-b65f558e9b97",
+            "widgetIdReceiver": "03e857a8-2a8f-4bc1-8950-f403a9b227c6"
+         },
+         {
+            "type": "metricId",
+            "widgetIdProvider": "5820a0cb-c345-4dcc-a1c6-b65f558e9b97",
+            "widgetIdReceiver": "03e857a8-2a8f-4bc1-8950-f403a9b227c6"
+         },
+         {
+            "type": "resourceId",
+            "widgetIdProvider": "a12883eb-05ff-4d5b-b585-5dd12257bf45",
+            "widgetIdReceiver": "af9bf65e-4ea2-48e7-9783-bd6e8920f64d"
+         },
+         {
+            "type": "metricId",
+            "widgetIdProvider": "a12883eb-05ff-4d5b-b585-5dd12257bf45",
+            "widgetIdReceiver": "af9bf65e-4ea2-48e7-9783-bd6e8920f64d"
+         }
+      ],
+      "widgets": [
+         {
+            "collapsed": false,
+            "config": {
+               "additionalColumns": [],
+               "additionalColumns_resource": [],
+               "barsCount": 15,
+               "depth": 10,
+               "filterMode": "tagFilter",
+               "filterOldMetrics": {"filterOldMetrics": false},
+               "metricOption": {
+                  "metricInfo": {
+                     "path": ["/source/powerConsumed"],
+                     "value": "powerConsumed"
+                  },
+                  "resourceKindId": ["resourceKind:id:0_::_"],
+                  "tagFilter": null,
+                  "value": {"metricOption": "metricsHighestUtilization"}
+               },
+               "mode": "metric",
+               "refreshContent": {"refreshContent": true},
+               "refreshInterval": 300,
+               "regenerationTime": 15,
+               "roundDecimals": 1,
+               "selfProvider": {"selfProvider": true},
+               "tagOption": {
+                  "tagFilter": null,
+                  "value": {"tagOption": "leastHealthyApplications"}
+               },
+               "title": "Top High Power Consumption Servers"
+            },
+            "gridsterCoords": {
+               "h": 6,
+               "w": 2,
+               "x": 1,
+               "y": 8
+            },
+            "height": 206,
+            "id": "e0d58837-8e99-4da9-91c7-e658044ba856",
+            "title": "Top High Power Consumption Servers",
+            "type": "ParetoAnalysis"
+         },
+         {
+            "collapsed": false,
+            "config": {
+               "impactedBadge": "",
+               "refreshContent": {"refreshContent": true},
+               "refreshInterval": 30,
+               "selfProvider": {"selfProvider": false},
+               "title": "Huawei Servers Top Alerts",
+               "topIssuesDisplayLimit": 15,
+               "triggeredObject": {"triggeredObject": "selfChildren"}
+            },
+            "gridsterCoords": {
+               "h": 7,
+               "w": 3,
+               "x": 4,
+               "y": 1
+            },
+            "height": 242,
+            "id": "716bec6d-233a-449b-90dc-200a95145ae5",
+            "title": "Huawei Servers Top Alerts",
+            "type": "ProblemAlertsList"
+         },
+         {
+            "collapsed": false,
+            "config": {
+               "additionalColumns": [],
+               "additionalColumns_resource": [],
+               "barsCount": 15,
+               "depth": 10,
+               "filterMode": "tagFilter",
+               "filterOldMetrics": {"filterOldMetrics": false},
+               "metricOption": {
+                  "metricInfo": {
+                     "path": ["/source/temperature"],
+                     "value": "temperature"
+                  },
+                  "resourceKindId": ["resourceKind:id:0_::_"],
+                  "tagFilter": null,
+                  "value": {"metricOption": "metricsHighestUtilization"}
+               },
+               "mode": "metric",
+               "refreshContent": {"refreshContent": true},
+               "refreshInterval": 300,
+               "regenerationTime": 15,
+               "roundDecimals": 1,
+               "selfProvider": {"selfProvider": true},
+               "tagOption": {
+                  "tagFilter": null,
+                  "value": {"tagOption": "leastHealthyApplications"}
+               },
+               "title": "Top High Inlet Temperature Servers"
+            },
+            "gridsterCoords": {
+               "h": 6,
+               "w": 2,
+               "x": 3,
+               "y": 8
+            },
+            "height": 206,
+            "id": "a12883eb-05ff-4d5b-b585-5dd12257bf45",
+            "title": "Top High Inlet Temperature Servers",
+            "type": "ParetoAnalysis"
+         },
+         {
+            "collapsed": false,
+            "config": {
+               "additionalColumns": [],
+               "additionalColumns_resource": [],
+               "barsCount": 15,
+               "depth": 10,
+               "filterMode": "tagFilter",
+               "filterOldMetrics": {"filterOldMetrics": false},
+               "metricOption": {
+                  "metricInfo": {
+                     "path": ["/source/fanSpeedLevel"],
+                     "value": "fanSpeedLevel"
+                  },
+                  "resourceKindId": ["resourceKind:id:0_::_"],
+                  "tagFilter": null,
+                  "value": {"metricOption": "metricsHighestUtilization"}
+               },
+               "mode": "metric",
+               "refreshContent": {"refreshContent": true},
+               "refreshInterval": 300,
+               "regenerationTime": 15,
+               "roundDecimals": 1,
+               "selfProvider": {"selfProvider": true},
+               "tagOption": {
+                  "tagFilter": null,
+                  "value": {"tagOption": "leastHealthyApplications"}
+               },
+               "title": "Top High Fan Speed On Average Servers"
+            },
+            "gridsterCoords": {
+               "h": 6,
+               "w": 2,
+               "x": 5,
+               "y": 8
+            },
+            "height": 206,
+            "id": "5820a0cb-c345-4dcc-a1c6-b65f558e9b97",
+            "title": "Top High Fan Speed On Average Servers",
+            "type": "ParetoAnalysis"
+         },
+         {
+            "collapsed": false,
+            "config": {
+               "columnSequence": {"columnSequence": "graphFirst"},
+               "metric": {
+                  "mode": "resourceKind",
+                  "resourceKindMetrics": [{
+                     "colorMethod": 1,
+                     "id": "extModel4247-1",
+                     "isStringMetric": false,
+                     "metricKey": "powerConsumed",
+                     "metricName": "Power Consumed (Watts)",
+                     "metricUnitId": null,
+                     "resourceKindId": "resourceKind:id:0_::_",
+                     "resourceKindName": "Node",
+                     "unit": null
+                  }],
+                  "resourceMetrics": []
+               },
+               "refreshContent": {"refreshContent": false},
+               "refreshInterval": 300,
+               "resInteractionMode": null,
+               "selfProvider": {"selfProvider": false},
+               "showResourceName": {"showObjectName": false},
+               "title": "Select About For Power Consumption Trend"
+            },
+            "gridsterCoords": {
+               "h": 7,
+               "w": 2,
+               "x": 1,
+               "y": 14
+            },
+            "height": 242,
+            "id": "68836f81-40b3-4299-8166-ce2f83810287",
+            "states": [{
+               "key": "permDateRange_widget_c74e6292-1b2d-4e3b-9fed-27acc02c729a_68836f81-40b3-4299-8166-ce2f83810287",
+               "value": "s%3A%7B%22dateRange%22%3A%22last6Hour%22%2C%22dateFrom%22%3Anull%2C%22dateTo%22%3Anull%2C%22timeFrom%22%3Anull%2C%22timeTo%22%3Anull%7D"
+            }],
+            "title": "Select About For Power Consumption Trend",
+            "type": "SparklineChart"
+         },
+         {
+            "collapsed": false,
+            "config": {
+               "columnSequence": {"columnSequence": "graphFirst"},
+               "metric": {
+                  "mode": "resourceKind",
+                  "resourceKindMetrics": [{
+                     "colorMethod": 1,
+                     "id": "extModel7940-1",
+                     "isStringMetric": false,
+                     "metricKey": "temperature",
+                     "metricName": "Temperature (Celsius)",
+                     "metricUnitId": null,
+                     "resourceKindId": "resourceKind:id:0_::_",
+                     "resourceKindName": "Node",
+                     "unit": null
+                  }],
+                  "resourceMetrics": []
+               },
+               "refreshContent": {"refreshContent": true},
+               "refreshInterval": 300,
+               "resInteractionMode": null,
+               "selfProvider": {"selfProvider": false},
+               "showResourceName": {"showObjectName": false},
+               "title": "Select About For Fan Speed Trend"
+            },
+            "gridsterCoords": {
+               "h": 7,
+               "w": 2,
+               "x": 5,
+               "y": 14
+            },
+            "height": 242,
+            "id": "03e857a8-2a8f-4bc1-8950-f403a9b227c6",
+            "states": [{
+               "key": "permDateRange_widget_c74e6292-1b2d-4e3b-9fed-27acc02c729a_03e857a8-2a8f-4bc1-8950-f403a9b227c6",
+               "value": "s%3A%7B%22dateRange%22%3A%22last6Hour%22%2C%22dateFrom%22%3Anull%2C%22dateTo%22%3Anull%2C%22timeFrom%22%3Anull%2C%22timeTo%22%3Anull%7D"
+            }],
+            "title": "Select About For Fan Speed Trend",
+            "type": "SparklineChart"
+         },
+         {
+            "collapsed": false,
+            "config": {
+               "columnSequence": {"columnSequence": "graphFirst"},
+               "metric": {
+                  "mode": "resourceKind",
+                  "resourceKindMetrics": [{
+                     "colorMethod": 1,
+                     "id": "extModel7547-1",
+                     "isStringMetric": false,
+                     "metricKey": "fanSpeedLevel",
+                     "metricName": "Fan Speed Level (Percents)",
+                     "metricUnitId": null,
+                     "resourceKindId": "resourceKind:id:0_::_",
+                     "resourceKindName": "Node",
+                     "unit": null
+                  }],
+                  "resourceMetrics": []
+               },
+               "refreshContent": {"refreshContent": true},
+               "refreshInterval": 300,
+               "resInteractionMode": null,
+               "selfProvider": {"selfProvider": false},
+               "showResourceName": {"showObjectName": false},
+               "title": "Select About For Temperature Trend"
+            },
+            "gridsterCoords": {
+               "h": 7,
+               "w": 2,
+               "x": 3,
+               "y": 14
+            },
+            "height": 242,
+            "id": "af9bf65e-4ea2-48e7-9783-bd6e8920f64d",
+            "states": [{
+               "key": "permDateRange_widget_c74e6292-1b2d-4e3b-9fed-27acc02c729a_af9bf65e-4ea2-48e7-9783-bd6e8920f64d",
+               "value": "s%3A%7B%22dateRange%22%3A%22last6Hour%22%2C%22dateFrom%22%3Anull%2C%22dateTo%22%3Anull%2C%22timeFrom%22%3Anull%2C%22timeTo%22%3Anull%7D"
+            }],
+            "title": "Select About For Temperature Trend",
+            "type": "SparklineChart"
+         },
+         {
+            "collapsed": false,
+            "config": {
+               "configs": [{
+                  "attributeKind": {
+                     "id": "healthEnum",
+                     "value": "Health Enum"
+                  },
+                  "attributePaths": ["/root/healthEnum"],
+                  "color": {
+                     "maxValue": "4",
+                     "minValue": "0",
+                     "endColor": "FF0000",
+                      "middleColor": "FFFF00",
+                     "startColor": "008000"
+                  },
+                  "colorBy": {
+                     "metricKey": "healthEnum",
+                     "value": "Health Enum"
+                  },
+                  "focusOnGroups": true,
+                  "groupBy": {
+                     "id": "004null002021FusionDirectorAdapterhostInstance",
+                     "parentId": "FusionDirectorAdapter",
+                     "parentText": "FusionDirectorAdapter",
+                     "text": "Fusion Director (Server)",
+                     "type": "resourceKind",
+                     "typeId": "resourceKind:id:1_::_"
+                  },
+                  "mode": {"mode": false},
+                  "name": "Servers Environment Health",
+                  "relationalGrouping": true,
+                  "resourceKind": "resourceKind:id:0_::_",
+                  "sizeBy": {
+                     "metricKey": null,
+                     "value": ""
+                  },
+                  "solidColoring": false,
+                  "tagFilter": null,
+                  "thenBy": {
+                     "id": "004null002021FusionDirectorAdapterclassifyGroup",
+                     "originalText": "Classify Group",
+                     "parentId": "FusionDirectorAdapter",
+                     "parentText": "FusionDirectorAdapter",
+                     "text": "Classify Group",
+                     "type": "resourceKind",
+                     "typeId": "resourceKind:id:2_::_"
+                  }
+               }],
+               "refreshContent": {"refreshContent": false},
+               "refreshInterval": 300,
+               "title": "Huawei Servers Environment Health",
+               "value": 0
+            },
+            "gridsterCoords": {
+               "h": 7,
+               "w": 3,
+               "x": 1,
+               "y": 1
+            },
+            "height": 242,
+            "id": "c52695a5-2053-4588-997f-12860e4353d7",
+            "states": [
+               {
+                  "key": "perm_toolbarVisible_widget_c74e6292-1b2d-4e3b-9fed-27acc02c729a_c52695a5-2053-4588-997f-12860e4353d7",
+                  "value": "b%3A1"
+               },
+               {
+                  "key": "perm_HeatMap_widget_c74e6292-1b2d-4e3b-9fed-27acc02c729a_c52695a5-2053-4588-997f-12860e4353d7",
+                  "value": "o%3A"
+               }
+            ],
+            "title": "Huawei Servers Environment Health",
+            "type": "Heatmap"
+         }
+      ]
+   }],
+   "entries": {"resourceKind": [
+      {
+         "adapterKindKey": "FusionDirectorAdapter",
+         "internalId": "resourceKind:id:0_::_",
+         "resourceKindKey": "node"
+      },
+      {
+         "adapterKindKey": "FusionDirectorAdapter",
+         "internalId": "resourceKind:id:1_::_",
+         "resourceKindKey": "hostInstance"
+      },
+      {
+         "adapterKindKey": "FusionDirectorAdapter",
+         "internalId": "resourceKind:id:2_::_",
+         "resourceKindKey": "classifyGroup"
+      }
+   ]},
+   "uuid": "1bb620cf-df1a-4bf7-b411-49693779de75"
+}
