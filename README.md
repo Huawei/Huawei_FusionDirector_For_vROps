@@ -33,3 +33,7 @@ V. Supported Device
 VI. Additional Resources
 
     For more information consult User Guide: https://github.com/Huawei/Huawei_FusionDirector_For_vROps/tree/master/docs
+
+VII. Open Source Software Notice
+
+    https://github.com/Huawei/Huawei_FusionDirector_For_vROps/blob/master/docs/Open_Source_Software_Notice.doc
