@@ -1,6 +1,8 @@
-package com.huawei.fd.service;
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
 
-import java.util.List;
+package com.huawei.fd.service;
 
 import com.huawei.fd.service.bean.EnclosureBean;
 import com.huawei.fd.service.bean.GroupBean;
@@ -8,24 +10,29 @@ import com.huawei.fd.service.bean.GroupResourceBean;
 import com.huawei.fd.service.bean.NodeBean;
 import com.huawei.fd.service.bean.SwitchNodeBean;
 
-public interface FusionDirectorService {
+import java.util.List;
 
-    public List<NodeBean> getAllNodes();
-    
-    public List<GroupBean> getAllNodeGroup();
-    
-    public List<SwitchNodeBean> getAllSwitchNode();
-    
-    public List<EnclosureBean> getAllEnclosure();
-    
-    public List<GroupResourceBean> getClassifyGroup();
-    
-    public String getVersion();
-    
-    public String getNodeHealth(String deviceId);
-    
-    public String getSwitchNodeHealth(String deviceId);
-    
-    public NodeBean getBladeNode(String deviceId);
-    
+/**
+ * FusionDirectorService
+ *
+ * @since 2019-02-18
+ */
+public interface FusionDirectorService {
+    List<NodeBean> getAllNodes();
+
+    List<GroupBean> getAllNodeGroup();
+
+    List<SwitchNodeBean> getAllSwitchNode();
+
+    List<EnclosureBean> getAllEnclosure();
+
+    List<GroupResourceBean> getClassifyGroup();
+
+    String getVersion();
+
+    String getNodeHealth(String deviceId);
+
+    String getSwitchNodeHealth(String deviceId);
+
+    NodeBean getBladeNode(String deviceId);
 }

@@ -1,43 +1,77 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.api.entity;
+
+import com.huawei.fd.service.bean.HealthStatusBean;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.huawei.fd.service.bean.HealthStatusBean;
 
+/**
+ * CatalogueEntity
+ *
+ * @since 2019-02-18
+ */
 public class CatalogueEntity extends BaseEntity {
-
     @JsonProperty(value = "Memory")
     private Catalog memory;
-    
+
     @JsonProperty(value = "Power")
     private Catalog power;
-    
+
     @JsonProperty(value = "Processor")
     private Catalog processor;
-    
+
     @JsonProperty(value = "Storage")
     private Catalog storage;
-    
+
     @JsonProperty(value = "Thermal")
     private Catalog fan;
-    
-    public String getMemoryHealth(){
+
+    /**
+     * 获取内存健康状态
+     *
+     * @return 健康状况
+     */
+    public String getMemoryHealth() {
         return memory.getHealth().getHealth();
     }
-    
-    public String getPowerHealth(){
+
+    /**
+     * 获取电源健康状态
+     *
+     * @return 健康状况
+     */
+    public String getPowerHealth() {
         return power.getHealth().getHealth();
     }
-    
-    public String getProcessorHealth(){
+
+    /**
+     * 获取处理器健康状态
+     *
+     * @return 健康状况
+     */
+    public String getProcessorHealth() {
         return processor.getHealth().getHealth();
     }
-    
-    public String getStorageHealth(){
+
+    /**
+     * 获取存储健康状态
+     *
+     * @return 健康状况
+     */
+    public String getStorageHealth() {
         return storage.getHealth().getHealth();
     }
-    
-    public String getFanHealth(){
+
+    /**
+     * 获取fan健康状态
+     *
+     * @return 健康状况
+     */
+    public String getFanHealth() {
         return fan.getHealth().getHealth();
     }
 
@@ -80,15 +114,13 @@ public class CatalogueEntity extends BaseEntity {
     public void setFan(Catalog fan) {
         this.fan = fan;
     }
-    
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Catalog {
-    
     @JsonProperty(value = "Count")
     private int count;
-    
+
     @JsonProperty(value = "Status")
     private HealthStatusBean health;
 
@@ -107,5 +139,4 @@ class Catalog {
     public void setHealth(HealthStatusBean health) {
         this.health = health;
     }
-    
 }

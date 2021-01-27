@@ -1,23 +1,24 @@
 /*
- * Copyright (c) 2014-2015 VMware, Inc. All rights reserved.
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
  */
+
 package com.huawei.adapter.util;
+
+import com.integrien.alive.common.adapter3.Logger;
+import com.integrien.alive.common.adapter3.describe.AdapterDescribe;
+import com.vmware.vrops.logging.AdapterLoggerFactory;
 
 import java.io.File;
 
-import org.apache.log4j.Logger;
-
-import com.integrien.alive.common.adapter3.describe.AdapterDescribe;
-import com.integrien.alive.common.util.InstanceLoggerFactory;
-
 /**
  * Utility class
+ *
+ * @since 2019-02-18
  */
 public class FusionDirectorAdapterUtil {
-
     private final Logger logger;
 
-    public FusionDirectorAdapterUtil(InstanceLoggerFactory loggerFactory) {
+    public FusionDirectorAdapterUtil(AdapterLoggerFactory loggerFactory) {
         this.logger = loggerFactory.getLogger(FusionDirectorAdapterUtil.class);
     }
 
@@ -28,17 +29,9 @@ public class FusionDirectorAdapterUtil {
      * @return instance of AdapterDescribe class {@link AdapterDescribe}
      */
     public AdapterDescribe createAdapterDescribe() {
-
         assert (logger != null);
 
-        // AdapterDescribe has all static information about the adapter like
-        // what
-        // all resource kinds (object types)
-        // are supported by the adapter, what all metrics are expected for those
-        // resource kinds
-
-        AdapterDescribe adapterDescribe = AdapterDescribe
-                .make(getDescribeXmlLocation() + "describe.xml");
+        AdapterDescribe adapterDescribe = AdapterDescribe.make(getDescribeXmlLocation() + "describe.xml");
         if (adapterDescribe == null) {
             logger.error("Unable to load adapter describe");
         } else {
@@ -58,7 +51,7 @@ public class FusionDirectorAdapterUtil {
         String adapterHome = System.getProperty("ADAPTER_HOME");
         String collectorHome = System.getProperty("COLLECTOR_HOME");
         if (collectorHome != null) {
-           adapterHome = collectorHome + File.separator + "adapters";
+            adapterHome = collectorHome + File.separator + "adapters";
         }
         return adapterHome;
     }
@@ -66,20 +59,19 @@ public class FusionDirectorAdapterUtil {
     /**
      * Returns the adapters root folder.
      *
-     * @return
+     * @return adapter path
      */
     public static String getAdapterFolder() {
-        return getAdapterHome() + File.separator + "FusionDirectorAdapter"
-                + File.separator;
+        return getAdapterHome() + File.separator + "FusionDirectorAdapter" + File.separator;
     }
 
     /**
      * Returns the adapters conf folder.
      *
-     * @return
+     * @return adapters conf folder
      */
     public static String getConfFolder() {
-             return getAdapterFolder() + "conf" + File.separator;
+        return getAdapterFolder() + "conf" + File.separator;
     }
 
     /**
@@ -89,14 +81,15 @@ public class FusionDirectorAdapterUtil {
      * @return describe XML location
      */
     public static String getDescribeXmlLocation() {
-
         String describeXML = null;
         String adapterHome = System.getProperty("ADAPTER_HOME");
+
         if (adapterHome == null) {
             describeXML = System.getProperty("user.dir") + File.separator;
         } else {
             describeXML = getConfFolder();
         }
+
         return describeXML;
     }
 }

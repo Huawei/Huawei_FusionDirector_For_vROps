@@ -1,18 +1,27 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.api.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * NodeStatisticsEntity
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NodeStatisticsEntity {
     @JsonProperty(value = "OccurTime")
     private String occurTime;
-    
+
     @JsonProperty(value = "ServerID")
     private String serverID;
-    
+
     @JsonProperty(value = "Results")
-    private StatisticResult result; 
+    private StatisticResult result;
 
     public String getOccurTime() {
         return occurTime;
@@ -37,99 +46,97 @@ public class NodeStatisticsEntity {
     public void setResult(StatisticResult result) {
         this.result = result;
     }
-    
+
     /**
      * get power consumed in total
-     * @return
+     *
+     * @return power consumed
      */
-    public int getPowerConsumed(){
-        
+    public int getPowerConsumed() {
         int powerConsumed = 0;
-        if (result == null || result.getPowerConsumed() == null){
+        if (result == null || result.getPowerConsumed() == null) {
             return powerConsumed;
         }
-        
-        
-        for (StatisticItem item : result.getPowerConsumed()){
+
+        for (StatisticItem item : result.getPowerConsumed()) {
             powerConsumed += item.getValue();
         }
         return powerConsumed;
     }
-    
+
     /**
      * fan speed level on average
-     * @return
+     *
+     * @return int
      */
-    public int getFanSpeedLevel(){
+    public int getFanSpeedLevel() {
         int fanSpeedLevel = 0;
         if (result == null || result.getFanSpeedLevel() == null) {
             return fanSpeedLevel;
         }
-        for (StatisticItem item : result.getFanSpeedLevel()){
+        for (StatisticItem item : result.getFanSpeedLevel()) {
             fanSpeedLevel += item.getValue();
         }
         return fanSpeedLevel / result.getFanSpeedLevel().length;
     }
-    
-    
+
     /**
      * get highest outlet temperature
-     * @return
+     *
+     * @return int
      */
     public int getInletTemperature() {
         int temperature = 0;
-        
+
         if (result == null || result.getInletTemp() == null) {
             return temperature;
         }
-        
+
         for (StatisticItem item : result.getInletTemp()) {
             temperature = item.getValue();
         }
         return temperature;
     }
-        
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class StatisticResult {
-    
     @JsonProperty(value = "CPUTemp")
     private StatisticItem[] cpuTemp;
-    
+
     @JsonProperty(value = "CPUUsagePercent")
     private StatisticItem[] cpuUsagePercent;
-    
+
     @JsonProperty(value = "DiskTotalCapacityGB")
     private String diskTotalCapacity;
-    
+
     @JsonProperty(value = "DiskUsagePercent")
     private String diskUsagePercent;
-    
+
     @JsonProperty(value = "DiskUsedCapacityGB")
     private String diskUsedCapacity;
-    
+
     @JsonProperty(value = "FanReading")
     private StatisticItem[] fanReading;
-    
+
     @JsonProperty(value = "FanSpeedLevelPercents")
     private StatisticItem[] fanSpeedLevel;
-    
+
     @JsonProperty(value = "InletTemp")
     private StatisticItem[] inletTemp;
-    
+
     @JsonProperty(value = "MemoryUsagePercent")
     private StatisticItem[] memoryUsage;
-    
+
     @JsonProperty(value = "PowerConsumedWatts")
     private StatisticItem[] powerConsumed;
-    
+
     @JsonProperty(value = "PowerInputWatts")
     private StatisticItem[] powerInput;
-    
+
     @JsonProperty(value = "PowerOutputWatts")
     private StatisticItem[] powerOutput;
-    
+
     @JsonProperty(value = "TemperatureReadingCelsius")
     private StatisticItem[] temperatureReading;
 
@@ -236,15 +243,13 @@ class StatisticResult {
     public void setTemperatureReading(StatisticItem[] temperatureReading) {
         this.temperatureReading = temperatureReading;
     }
-    
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class StatisticItem {
-    
     @JsonProperty(value = "MemberName")
     private String memberName;
-    
+
     @JsonProperty(value = "Value")
     private Integer value;
 
@@ -263,5 +268,4 @@ class StatisticItem {
     public void setValue(Integer value) {
         this.value = value;
     }
-    
 }

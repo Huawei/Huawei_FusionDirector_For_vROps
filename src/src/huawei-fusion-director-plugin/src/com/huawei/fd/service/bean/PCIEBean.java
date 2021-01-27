@@ -1,43 +1,51 @@
-package com.huawei.fd.service.bean;
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
 
-import java.io.Serializable;
+package com.huawei.fd.service.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+
+/**
+ * PCIEBean
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PCIEBean extends BaseResource {
-
     @JsonProperty(value = "Description")
     private String description;
-    
+
     @JsonProperty(value = "DeviceID")
     private String deviceID;
-    
+
     @JsonProperty(value = "FirmwareVersion")
     private String firmwareVersion;
-    
+
     @JsonProperty(value = "Id")
     private String id;
-    
+
     @JsonProperty(value = "Manufacturer")
     private String manufacturer;
-    
+
     @JsonProperty(value = "Model")
     private String model;
-    
+
     @JsonProperty(value = "ModelType")
     private String modelType;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "Oem")
     private PCIEOEM oem;
-    
+
     @JsonProperty(value = "SerialNumber")
     private String serialNumber;
-    
+
     @JsonProperty(value = "Status")
     private HealthStatusBean status = new HealthStatusBean();
 
@@ -142,38 +150,35 @@ public class PCIEBean extends BaseResource {
 
     @Override
     public void setAttributes() {
-        
-       setStringProperty("description", this.getDescription());
-       setStringProperty("deviceID", this.getDeviceID());
-       setStringProperty("firmwareVersion", this.getFirmwareVersion());
-       setStringProperty("id", this.getId());
-       setStringProperty( "manufacturer", this.manufacturer);
-       setStringProperty( "name", this.name);
-       setStringProperty("model", this.model);
-       setStringProperty( "modelType", this.getModelType());
-       setStringProperty("serialNumber", this.getSerialNumber());
-        
-       setStringMetric("healthStatus", this.status.getHealth());
-       
-       //enumerable values: Enabled, Absent,Disabled,Unknown
-       setStringMetric("healthState", this.status.getState());  
-        
-       setStringProperty("deviceLocator", this.oem.getInfo().getDeviceLocator());
-       setStringProperty("functionType", this.oem.getInfo().getFunctionType());
-       setStringProperty("position", this.oem.getInfo().getPosition());
-       setIntProperty("power", this.oem.getInfo().getPower());
+        setStringProperty("description", this.getDescription());
+        setStringProperty("deviceID", this.getDeviceID());
+        setStringProperty("firmwareVersion", this.getFirmwareVersion());
+        setStringProperty("id", this.getId());
+        setStringProperty("manufacturer", this.manufacturer);
+        setStringProperty("name", this.name);
+        setStringProperty("model", this.model);
+        setStringProperty("modelType", this.getModelType());
+        setStringProperty("serialNumber", this.getSerialNumber());
+
+        setStringMetric("healthStatus", this.status.getHealth());
+
+        // enumerable values: Enabled, Absent,Disabled,Unknown
+        setStringMetric("healthState", this.status.getState());
+
+        setStringProperty("deviceLocator", this.oem.getInfo().getDeviceLocator());
+        setStringProperty("functionType", this.oem.getInfo().getFunctionType());
+        setStringProperty("position", this.oem.getInfo().getPosition());
+        setIntProperty("power", this.oem.getInfo().getPower());
     }
 
     @Override
     public boolean allowRename() {
         return true;
     }
-    
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class PCIEOEM implements Serializable {
-    
     @JsonProperty(value = "Huawei")
     private OemInfo info;
 
@@ -184,21 +189,19 @@ class PCIEOEM implements Serializable {
     public void setInfo(OemInfo info) {
         this.info = info;
     }
-    
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class OemInfo implements Serializable {
-    
     @JsonProperty(value = "DeviceLocator")
     private String deviceLocator;
-    
+
     @JsonProperty(value = "FunctionType")
     private String functionType;
-    
+
     @JsonProperty(value = "Position")
     private String position;
-    
+
     @JsonProperty(value = "Power")
     private String power;
 
@@ -233,5 +236,4 @@ class OemInfo implements Serializable {
     public void setPower(String power) {
         this.power = power;
     }
-    
 }

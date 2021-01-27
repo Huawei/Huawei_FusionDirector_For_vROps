@@ -1,17 +1,25 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.api.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Entity抽象基类
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class BaseEntity {
-    
     @JsonProperty(value = "@odata.context")
     private String context;
-    
+
     @JsonProperty(value = "@odata.id")
     private String resourcePath;
-    
+
     @JsonProperty(value = "@odata.type")
     private String resourceType;
 
@@ -38,5 +46,4 @@ public abstract class BaseEntity {
     public void setResourceType(String resourceType) {
         this.resourceType = resourceType;
     }
-
 }

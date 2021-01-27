@@ -1,58 +1,63 @@
-package com.huawei.fd.api.entity;
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
 
-import java.util.HashMap;
-import java.util.Map;
+package com.huawei.fd.api.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.HashMap;
+import java.util.Map;
 
+/**
+ * NodeEntity
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NodeEntity {
-    
     @JsonProperty(value = "DeviceID")
     private String deviceID;
-    
+
     @JsonProperty(value = "serialNumber")
     private String serialNumber;
-    
+
     @JsonProperty(value = "UUID")
     private String uuid;
-    
+
     @JsonProperty(value = "name")
     private String name;
-    
+
     @JsonProperty(value = "Model")
     private String model;
-    
+
     @JsonProperty(value = "Group")
     private String[] group;
-    
+
     @JsonProperty(value = "PowerState")
     private String powerState;
-    
+
     @JsonProperty(value = "IPv4Address")
-    private Map<String,String> iPv4Address = new HashMap<String,String>();
-    
+    private Map<String, String> iPv4Address = new HashMap<String, String>();
+
     @JsonProperty(value = "ProcessorSummary")
-    private Map<String,String> processorSummary = new HashMap<String,String>();
-    
+    private Map<String, String> processorSummary = new HashMap<String, String>();
+
     @JsonProperty(value = "StorageSummary")
-    private Map<String,String> storageSummary = new HashMap<String,String>();
-    
-    
+    private Map<String, String> storageSummary = new HashMap<String, String>();
+
     @JsonProperty(value = "MemorySummary")
-    private Map<String,String> memorySummary = new HashMap<String,String>();
-    
+    private Map<String, String> memorySummary = new HashMap<String, String>();
+
     @JsonProperty(value = "Profile")
-    private Map<String,String> profile = new HashMap<String,String>();
-    
+    private Map<String, String> profile = new HashMap<String, String>();
+
     @JsonProperty(value = "Status")
-    private Map<String,String> status = new HashMap<String,String>();
-    
+    private Map<String, String> status = new HashMap<String, String>();
+
     @JsonProperty(value = "ServerState")
     private String serverState;
-    
 
     public String getServerState() {
         return serverState;
@@ -111,9 +116,9 @@ public class NodeEntity {
     }
 
     public void setGroup(String[] group) {
-    	if (group != null) {
+        if (group != null) {
             this.group = group.clone();
-    	}
+        }
     }
 
     public String getPowerState() {
@@ -171,5 +176,4 @@ public class NodeEntity {
     public Map<String, String> getStatus() {
         return status;
     }
-    
 }

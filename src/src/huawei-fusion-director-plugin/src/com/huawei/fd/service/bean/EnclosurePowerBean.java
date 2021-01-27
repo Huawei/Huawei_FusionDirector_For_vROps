@@ -1,39 +1,48 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.service.bean;
+
+import com.huawei.fd.util.ConvertUtil;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.huawei.fd.util.ConvertUtil;
 
+/**
+ * EnclosurePowerBean
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EnclosurePowerBean extends BaseResource {
-    
     @JsonProperty(value = "Index")
     private Integer index;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "State")
     private String state;
-    
+
     @JsonProperty(value = "PowerSupplyType")
     private String powerSupplyType;
-    
+
     @JsonProperty(value = "FirmwareVersion")
     private String firmwareVersion;
-    
+
     @JsonProperty(value = "HardwareVersion")
     private String hardwareVersion;
-    
+
     @JsonProperty(value = "SleepStatus")
     private String sleepStatus;
-    
+
     @JsonProperty(value = "Health")
     private String health;
-    
+
     @JsonProperty(value = "SerialNumber")
     private String serialNumber;
-    
+
     @JsonProperty(value = "PowerCapacityWatts")
     private String powerCapacity;
 
@@ -129,7 +138,6 @@ public class EnclosurePowerBean extends BaseResource {
 
     @Override
     public String getResourceIdentifier() {
-//        return this.serialNumber;
         return this.index + "";
     }
 
@@ -137,8 +145,8 @@ public class EnclosurePowerBean extends BaseResource {
     public void setAttributes() {
         setIntProperty("index", this.index + "");
         setStringProperty("name", this.name);
-        
-        //enumerable values: Enabled, Absent,Disabled,Unknown
+
+        // enumerable values: Enabled, Absent,Disabled,Unknown
         setStringMetric("state", this.state);
         setStringProperty("powerSupplyType", this.powerSupplyType);
         setStringProperty("firmwareVersion", this.firmwareVersion);
@@ -153,5 +161,4 @@ public class EnclosurePowerBean extends BaseResource {
     public boolean allowRename() {
         return true;
     }
-
 }

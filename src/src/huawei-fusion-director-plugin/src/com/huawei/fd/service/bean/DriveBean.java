@@ -1,47 +1,55 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.service.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * DriveBean
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DriveBean extends BaseResource {
-    
     @JsonProperty(value = "CapableSpeedGbs")
     private int capableSpeedGbs;
-    
+
     @JsonProperty(value = "CapacityGiB")
     private int capacityGiB;
-    
+
     @JsonProperty(value = "DeviceID")
     private String deviceID;
-    
+
     @JsonProperty(value = "Id")
     private String id;
-    
+
     @JsonProperty(value = "IndicatorLED")
     private String indicatorLED;
-    
+
     @JsonProperty(value = "Manufacturer")
     private String manufacturer;
-    
+
     @JsonProperty(value = "MediaType")
     private String mediaType;
-    
+
     @JsonProperty(value = "Model")
     private String model;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "Protocol")
     private String protocol;
-    
+
     @JsonProperty(value = "Revision")
     private String revision;
-    
+
     @JsonProperty(value = "SerialNumber")
     private String serialNumber;
-    
+
     @JsonProperty(value = "Status")
     private HealthStatusBean status = new HealthStatusBean();
 
@@ -162,7 +170,7 @@ public class DriveBean extends BaseResource {
 
     @Override
     public void setAttributes() {
-        setIntMeric("capableSpeed", this.getCapableSpeedGbs()+"");
+        setIntMeric("capableSpeed", this.getCapableSpeedGbs() + "");
         setIntMeric("capacity", this.getCapacityGiB() + "");
         setStringProperty("deviceID", this.getDeviceID());
         setStringProperty("id", this.getId());
@@ -174,17 +182,15 @@ public class DriveBean extends BaseResource {
         setStringProperty("protocol", this.getProtocol());
         setStringProperty("revision", this.getRevision());
         setStringProperty("serialNumber", this.getSerialNumber());
-        
+
         setStringMetric("healthStatus", this.status.getHealth());
-        
-        //enumerable values: Enabled, Absent,Disabled,Unknown 
-        setStringMetric("healthState", this.status.getState());  
-        
+
+        // enumerable values: Enabled, Absent,Disabled,Unknown
+        setStringMetric("healthState", this.status.getState());
     }
 
     @Override
     public boolean allowRename() {
         return true;
     }
-    
 }

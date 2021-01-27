@@ -1,7 +1,15 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.service.bean;
 
+/**
+ * GroupResourceBean
+ *
+ * @since 2019-02-18
+ */
 public class GroupResourceBean extends BaseResource {
-    
     public GroupResourceBean(String resourceName, String resourceLabel) {
         super();
         this.resourceName = resourceName;
@@ -9,9 +17,9 @@ public class GroupResourceBean extends BaseResource {
     }
 
     private String resourceName;
-    
+
     private String resourceLabel;
-    
+
     private String healthStatus = null;
 
     public void setResourceName(String resourceName) {
@@ -47,16 +55,13 @@ public class GroupResourceBean extends BaseResource {
 
     @Override
     public void setAttributes() {
-       
         if (this.healthStatus != null) {
             setStringMetric("healthStatus", this.healthStatus);
         }
-        
     }
 
     @Override
     public boolean allowRename() {
         return true;
     }
-
 }

@@ -2,8 +2,8 @@
 <solution>
 <managementPack>
 <name>HuaweiFusionDirectorManagementPack</name>
-<version>1.0.16</version>
-<minimumProductVersion>6.0.0</minimumProductVersion>
+<version>2.0.1</version>
+<minimumProductVersion>8.0.0</minimumProductVersion>
 <localizations lang="en">
 <localization lang="en">
 <displayName>Huawei FusionDirector Management Pack</displayName>

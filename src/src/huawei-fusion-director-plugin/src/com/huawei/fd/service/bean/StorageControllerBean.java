@@ -1,41 +1,52 @@
-package com.huawei.fd.service.bean;
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
 
-import java.io.Serializable;
+package com.huawei.fd.service.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+
+/**
+ * StorageControllerBean
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StorageControllerBean extends BaseResource {
-
     @JsonProperty(value = "Description")
     private String description;
-    
+
     @JsonProperty(value = "FirmwareVersion")
     private String firmwareVersion;
-    
+
     @JsonProperty(value = "Manufacturer")
     private String manufacturer;
-    
+
     @JsonProperty(value = "MemberId")
     private String memberId;
-    
+
     @JsonProperty(value = "Model")
     private String model;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "SpeedGbps")
     private int speedGbps;
-    
+
     @JsonProperty(value = "Status")
     private HealthStatusBean status = new HealthStatusBean();
-    
+
     @JsonProperty(value = "SupportedDeviceProtocols")
     private String[] supportedDeviceProtocols = {};
-    
+
     private String deviceID;
+
+    @JsonProperty(value = "Oem")
+    private ControllerOem oem;
 
     public String getDescription() {
         return description;
@@ -110,7 +121,7 @@ public class StorageControllerBean extends BaseResource {
     public HealthStatusBean getStatus() {
         return status;
     }
-    
+
     public String getDeviceID() {
         return deviceID;
     }
@@ -119,8 +130,6 @@ public class StorageControllerBean extends BaseResource {
         this.deviceID = deviceID;
     }
 
-    @JsonProperty(value = "Oem")
-    ControllerOem oem;
 
     public ControllerOem getOem() {
         return oem;
@@ -142,7 +151,6 @@ public class StorageControllerBean extends BaseResource {
 
     @Override
     public String getResourceIdentifier() {
-        
         return this.memberId;
     }
 
@@ -154,18 +162,18 @@ public class StorageControllerBean extends BaseResource {
         setStringProperty("memberId", memberId);
         setStringProperty("model", model);
         setStringProperty("name", name);
-        setIntProperty("speed", this.speedGbps+"");
-        
+        setIntProperty("speed", this.speedGbps + "");
+
         setStringMetric("healthStatus", this.status.getHealth());
-        
-        //enumerable values: Enabled, Absent,Disabled,Unknown
+
+        // enumerable values: Enabled, Absent,Disabled,Unknown
         setStringMetric("healthState", this.status.getState());
-        
+
         setStringProperty("supportedDeviceProtocols", String.join(",", supportedDeviceProtocols));
         setStringProperty("configurationVersion", oem.getInfo().getConfigurationVersion());
         setIntProperty("memorySize", oem.getInfo().getMemorySize());
         setStringProperty("sasAddress", oem.getInfo().getSasAddress());
-        setStringProperty("supportedRAIDLevels",  String.join(",",oem.getInfo().getSupportedRAIDLevels()));
+        setStringProperty("supportedRAIDLevels", String.join(",", oem.getInfo().getSupportedRAIDLevels()));
         setStringProperty("deviceID", this.deviceID);
     }
 
@@ -173,12 +181,10 @@ public class StorageControllerBean extends BaseResource {
     public boolean allowRename() {
         return true;
     }
-    
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class ControllerOem implements Serializable {
-    
     @JsonProperty(value = "Huawei")
     CustomInfo info;
 
@@ -189,26 +195,24 @@ class ControllerOem implements Serializable {
     public void setInfo(CustomInfo info) {
         this.info = info;
     }
-    
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class CustomInfo implements Serializable {
-    
-    @JsonProperty(value = "ConfigurationVersion") 
+    @JsonProperty(value = "ConfigurationVersion")
     private String configurationVersion;
-    
-    @JsonProperty(value = "MemorySizeMiB") 
+
+    @JsonProperty(value = "MemorySizeMiB")
     private String memorySize;
-    
-    @JsonProperty(value = "SASAddress") 
+
+    @JsonProperty(value = "SASAddress")
     private String sasAddress;
-    
-    @JsonProperty(value = "SupportedRAIDLevels") 
+
+    @JsonProperty(value = "SupportedRAIDLevels")
     private String[] supportedRAIDLevels = {};
-    
-    @JsonProperty(value = "CapacitanceStatus") 
-    HealthStatusBean health;
+
+    @JsonProperty(value = "CapacitanceStatus")
+    private HealthStatusBean health;
 
     public String getConfigurationVersion() {
         return configurationVersion;
@@ -239,7 +243,7 @@ class CustomInfo implements Serializable {
     }
 
     public void setSupportedRAIDLevels(String[] supportedRAIDLevels) {
-        if (supportedRAIDLevels!=null){
+        if (supportedRAIDLevels != null) {
             this.supportedRAIDLevels = supportedRAIDLevels.clone();
         }
     }
@@ -251,5 +255,4 @@ class CustomInfo implements Serializable {
     public void setHealth(HealthStatusBean health) {
         this.health = health;
     }
-    
 }

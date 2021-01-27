@@ -1,23 +1,31 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.api.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * GroupEntity
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GroupEntity {
-
     @JsonProperty(value = "ID")
     private int id;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "Description")
     private String description;
-    
+
     @JsonProperty(value = "Type")
     private String type;
-    
+
     @JsonProperty(value = "Enabled")
     private boolean enabled;
 
@@ -60,5 +68,4 @@ public class GroupEntity {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-    
 }

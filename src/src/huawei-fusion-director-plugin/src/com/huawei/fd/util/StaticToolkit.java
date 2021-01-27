@@ -1,10 +1,18 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.util;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * StaticToolkit
+ *
+ * @since 2019-02-18
+ */
 public class StaticToolkit<K, V> {
-    
     private List<Entry<K, V>> entries = new ArrayList<>();
 
     public void add(K k, V v) {
@@ -24,9 +32,8 @@ public class StaticToolkit<K, V> {
 }
 
 class Entry<K, V> {
-    
     private K k;
-    
+
     private V v;
 
     public Entry(K k, V v) {

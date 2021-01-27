@@ -1,28 +1,32 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.service.bean;
 
-
+/**
+ * FusionDirector
+ *
+ * @since 2019-02-18
+ */
 public class FusionDirector extends BaseResource {
-    
     private String host;
-    
     private int port;
-    
     private String user;
-    
     private String code;
-    
     private String classifyMethod;
-    
     private String resourceName;
-    
     private String certPath;
-    
     private String state = "online";
-    
     private String health = "Unknown";
-    
-    public String getPrefix(){
-        return host+port;
+
+    /**
+     * 拼接FD标识前缀
+     *
+     * @return 字符串
+     */
+    public String getPrefix() {
+        return host + port;
     }
 
     public String getHealth() {
@@ -97,7 +101,7 @@ public class FusionDirector extends BaseResource {
     public String getClassifyMethod() {
         return classifyMethod;
     }
-    
+
     @Override
     public String getResourceName() {
         return this.resourceName;
@@ -119,22 +123,24 @@ public class FusionDirector extends BaseResource {
 
     @Override
     public void setAttributes() {
-        
         setStringMetric("healthStatus", this.health);
-        
         setStringMetric("state", this.state);
-        
     }
-    
+
     @Override
     public boolean allowRename() {
         return false;
     }
-    
-    public void isOffLineException(Exception e){
-        if (e.getMessage().matches(".*java\\.net\\.(ConnectException|NoRouteToHostException).*")){ //refused or timeout
-            state = "offline";
-        } 
-    }
 
+    /**
+     * 判断FD是否是离线
+     *
+     * @param ex 异常
+     */
+    public void isOffLineException(Exception ex) {
+        if (ex.getMessage()
+                .matches(".*java\\.net\\.(ConnectException|NoRouteToHostException).*")) { // refused or timeout
+            state = "offline";
+        }
+    }
 }

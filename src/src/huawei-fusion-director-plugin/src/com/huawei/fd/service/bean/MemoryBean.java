@@ -1,51 +1,59 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.service.bean;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+/**
+ * MemoryBean
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class MemoryBean extends BaseResource{
-    
+public class MemoryBean extends BaseResource {
     @JsonProperty(value = "DeviceID")
     private String deviceID;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "Id")
     private String id;
-    
+
     @JsonProperty(value = "CapacityGiB")
     private int capacity;
-    
+
     @JsonProperty(value = "Manufacturer")
     private String manufacturer;
-    
+
     @JsonProperty(value = "OperatingSpeedMhz")
     private int operatingSpeed;
-    
+
     @JsonProperty(value = "SerialNumber")
     private String serialNumber;
-    
+
     @JsonProperty(value = "PartNumber")
     private String partNumber;
-    
+
     @JsonProperty(value = "MemoryDeviceType")
     private String memoryDeviceType;
-    
+
     @JsonProperty(value = "DataWidthBits")
     private int dataWidthBits;
-    
+
     @JsonProperty(value = "Slot")
     private int slot;
-    
+
     @JsonProperty(value = "Status")
     private HealthStatusBean status = new HealthStatusBean();
-    
+
     @JsonProperty(value = "Oem")
     private MemoryOEM oem;
 
@@ -165,38 +173,35 @@ public class MemoryBean extends BaseResource{
         setStringProperty("deviceID", this.getDeviceID());
         setStringProperty("name", this.getName());
         setStringProperty("id", this.getId());
-        setIntMeric("capacity", this.getCapacity()+"");
+        setIntMeric("capacity", this.getCapacity() + "");
         setStringProperty("manufacturer", this.getManufacturer());
-        setIntProperty("operatingSpeed", this.getOperatingSpeed()+"");
+        setIntProperty("operatingSpeed", this.getOperatingSpeed() + "");
         setStringProperty("serialNumber", this.getSerialNumber());
         setStringProperty("partNumber", this.getPartNumber());
         setStringProperty("memoryDeviceType", this.getMemoryDeviceType());
-        setIntMeric("dataWidthBits", this.getDataWidthBits()+"");
-        setIntProperty("slot", this.getSlot()+"");
-        
+        setIntMeric("dataWidthBits", this.getDataWidthBits() + "");
+        setIntProperty("slot", this.getSlot() + "");
+
         setStringMetric("healthStatus", this.status.getHealth());
-        
-        //enumerable values: Enabled, Absent,Disabled,Unknown
-        setStringMetric("healthState", this.status.getState());    
-        
+
+        // enumerable values: Enabled, Absent,Disabled,Unknown
+        setStringMetric("healthState", this.status.getState());
+
         setStringProperty("technology", this.oem.getInfo().get("Technology"));
         setStringProperty("position", this.oem.getInfo().get("Position"));
         setIntProperty("minVoltage", this.oem.getInfo().get("MinVoltageMillivolt"));
-        
     }
 
     @Override
     public boolean allowRename() {
         return true;
     }
-
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class MemoryOEM implements Serializable {
-    
     @JsonProperty(value = "Huawei")
-    private Map<String,String> info = new HashMap<String,String>();
+    private Map<String, String> info = new HashMap<String, String>();
 
     public Map<String, String> getInfo() {
         return info;
@@ -205,5 +210,4 @@ class MemoryOEM implements Serializable {
     public void setInfo(Map<String, String> info) {
         this.info = info;
     }
-    
 }

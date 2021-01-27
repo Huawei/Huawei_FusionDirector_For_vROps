@@ -1,90 +1,97 @@
-package com.huawei.fd.service.bean;
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
 
-import java.util.HashMap;
-import java.util.Map;
+package com.huawei.fd.service.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * NodeBean
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NodeBean extends BaseResource {
-    
     @JsonProperty(value = "AssetTag")
     private String assetTag;
-    
+
     @JsonProperty(value = "BiosVersion")
     private String biosVersion;
-    
+
     @JsonProperty(value = "DeviceID")
     private String deviceID;
-    
+
     @JsonProperty(value = "Group")
-    private String[] group = { "Ungrouped-Default" };
-    
+    private String[] group = {"Ungrouped-Default"};
+
     @JsonProperty(value = "GroupID")
-    private Integer[] groupID = { 0 };    
-    
+    private Integer[] groupID = {0};
+
     @JsonProperty(value = "IPv4Address")
-    private Map<String,String> iPv4Address = new HashMap<String,String>();
-    
+    private Map<String, String> iPv4Address = new HashMap<String, String>();
+
     @JsonProperty(value = "Id")
     private String id;
-    
+
     @JsonProperty(value = "Manufacturer")
     private String manufacturer;
-    
+
     @JsonProperty(value = "Model")
     private String model = "";
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "PowerState")
     private String powerState;
-    
+
     @JsonProperty(value = "Profile")
-    private Map<String,String> profile = new HashMap<String,String>();
-    
+    private Map<String, String> profile = new HashMap<String, String>();
+
     @JsonProperty(value = "ProfileModel")
-    private Map<String,String> profileModel = new HashMap<String,String>();
-    
+    private Map<String, String> profileModel = new HashMap<String, String>();
+
     @JsonProperty(value = "SerialNumber")
     private String serialNumber;
 
-    //replace ServerState with State
-    @JsonProperty(value = "State") 
+    // replace ServerState with State
+    @JsonProperty(value = "State")
     private String serverState;
-    
+
     @JsonProperty(value = "Slot")
     private String slot;
-    
+
     @JsonProperty(value = "Status")
     private HealthStatusBean status = new HealthStatusBean();
-    
+
     @JsonProperty(value = "UUID")
     private String uuid;
-    
+
     @JsonProperty(value = "Tag")
     private String tag;
-    
+
     private int powerConsumed;
-    
+
     private int fanSpeedLevel;
-    
+
     private int temperature;
-    
+
     private String memoryHealth;
-    
+
     private String powerHealth;
-    
+
     private String processorHealth;
-    
+
     private String storageHealth;
-    
+
     private String fanHealth;
-    
+
     private SlotBean slotBean = null;
-    
 
     public SlotBean getSlotBean() {
         return slotBean;
@@ -93,7 +100,7 @@ public class NodeBean extends BaseResource {
     public void setSlotBean(SlotBean slotBean) {
         this.slotBean = slotBean;
     }
-    
+
     public String getMemoryHealth() {
         return memoryHealth;
     }
@@ -290,7 +297,7 @@ public class NodeBean extends BaseResource {
     public void setStatus(HealthStatusBean status) {
         this.status = status;
     }
-    
+
     public Integer[] getGroupID() {
         return groupID.clone();
     }
@@ -300,7 +307,7 @@ public class NodeBean extends BaseResource {
             this.groupID = groupID.clone();
         }
     }
-    
+
     public Map<String, String> getProfile() {
         return profile;
     }
@@ -308,67 +315,66 @@ public class NodeBean extends BaseResource {
     public Map<String, String> getProfileModel() {
         return profileModel;
     }
-    
+
+    /**
+     * 获取健康状态
+     *
+     * @return 健康状态
+     */
     public String getHealth() {
         return this.status.getHealth();
     }
 
     @Override
     public String getResourceName() {
-        
         if (this.slotBean != null || this.deviceID == null) {
             return "bladeNode";
         } else {
-            return "node";    
+            return "node";
         }
-        
     }
 
     @Override
     public String getResourceLabel() {
-        
         String label = this.iPv4Address.get("Address");
-        
-        if (label==null) {
+
+        if (label == null) {
             label = "Absent";
         }
-        
+
         if (this.slotBean != null) {
             label = "blade" + this.slotBean.getIndex() + "_" + label;
         } else if (!(this.tag == null || this.tag.isEmpty())) {
-            label = tag + "_" + label;            
+            label = tag + "_" + label;
         }
-        
+
         return label;
     }
 
     @Override
     public String getResourceIdentifier() {
-        
         String resourceName = getResourceName();
-        
+
         if (this.deviceID != null) {
             return resourceName + getDeviceID();
         } else {
             return resourceName + this.slotBean.getResourceIdentifier();
         }
-        
     }
 
     @Override
     public void setAttributes() {
-        
-        if (this.deviceID != null ) {
+        if (this.deviceID != null) {
             setStringProperty("biosVersion", this.biosVersion);
             setStringProperty("deviceID", this.deviceID);
             setStringProperty("UUID", this.uuid);
-            
+
             setStringProperty("ipv4Address", this.iPv4Address.get("Address"));
             setStringProperty("ipv4AddressOrigin", this.iPv4Address.get("AddressOrigin"));
             setStringProperty("ipv4Gateway", this.iPv4Address.get("GateWay"));
             setStringProperty("ipv4SubnetMask", this.iPv4Address.get("SubnetMask"));
             setStringProperty("id", this.id);
-            
+
             setStringProperty("manufacturer", this.manufacturer);
             setStringProperty("model", this.model);
             setStringProperty("name", this.name);
@@ -376,61 +382,32 @@ public class NodeBean extends BaseResource {
             setStringProperty("serialNumber", this.serialNumber);
             setStringProperty("tag", this.tag);
             setStringMetric("serverState", this.serverState);
-            
+
             setStringMetric("healthStatus", this.status.getHealth());
             setStringMetric("healthState", this.status.getState());
-            
+
             if (this.fanSpeedLevel > 0) {
                 setIntMeric("fanSpeedLevel", this.fanSpeedLevel + "");
             }
-            
+
             if (this.temperature > 0) {
                 setIntMeric("temperature", this.temperature + "");
             }
-            
+
             if (this.powerConsumed > 0) {
                 setIntMeric("powerConsumed", this.powerConsumed + "");
             }
-            
-            String healthEnum = "";
-            
-            switch (this.status.getHealth()) {
-            case "OK" : {
-                healthEnum = "0";
-            }
-            break;
-            case "Unknown" : {
-                healthEnum = "1";
-            }
-            break;
-            case "Warning" : {
-                healthEnum = "2";
-            }
-            break;
-            case "Immediate" : {
-                healthEnum = "3";
-            }
-            break;
-            case "Critical" : {
-                healthEnum = "4";
-            }
-            break;
-            default : {
-                healthEnum = "0";
-            }
-            break;
-            
-            }
-            
+
+            String healthEnum = getHealthEnum();
+
             setIntMeric("healthEnum", healthEnum);
-            
+
             setStringMetric("memoryHealth", memoryHealth);
             setStringMetric("powerHealth", powerHealth);
             setStringMetric("processorHealth", processorHealth);
             setStringMetric("storageHealth", storageHealth);
             setStringMetric("fanHealth", fanHealth);
-            
-        } 
+        }
 
         if (this.slotBean != null) {
             setIntProperty("index", slotBean.getIndex() + "");
@@ -439,18 +416,47 @@ public class NodeBean extends BaseResource {
             setStringProperty("physicalUUID", slotBean.getPhysicalUUID());
             setStringProperty("serialNumber", slotBean.getSerialNumber());
 
-            //do not overwrite the health status in case that blade node is available 
+            // do not overwrite the health status in case that blade node is available
             if (this.deviceID == null) {
-                //hard coded as Unknown
+                // hard coded as Unknown
                 setStringMetric("healthStatus", slotBean.getHealthStatus());
             }
         }
-        
+    }
+
+    private String getHealthEnum() {
+        String healthEnum;
+        switch (this.status.getHealth()) {
+            case "OK": {
+                healthEnum = "0";
+            }
+            break;
+            case "Unknown": {
+                healthEnum = "1";
+            }
+            break;
+            case "Warning": {
+                healthEnum = "2";
+            }
+            break;
+            case "Immediate": {
+                healthEnum = "3";
+            }
+            break;
+            case "Critical": {
+                healthEnum = "4";
+            }
+            break;
+            default: {
+                healthEnum = "0";
+            }
+            break;
+        }
+        return healthEnum;
     }
 
     @Override
     public boolean allowRename() {
         return true;
     }
-    
 }

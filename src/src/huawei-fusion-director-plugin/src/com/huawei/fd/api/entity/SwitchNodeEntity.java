@@ -1,33 +1,42 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.api.entity;
+
+import com.huawei.fd.service.bean.HealthStatusBean;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.huawei.fd.service.bean.HealthStatusBean;
 
+/**
+ * SwitchNodeEntity
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SwitchNodeEntity {
-    
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "DeviceID")
     private String deviceID;
-    
+
     @JsonProperty(value = "UUID")
     private String uuid;
-    
+
     @JsonProperty(value = "Model")
     private String model;
-    
+
     @JsonProperty(value = "SerialNumber")
     private String serialNumber;
-    
+
     @JsonProperty(value = "SwitchState")
     private String switchState;
-    
+
     @JsonProperty(value = "Status")
     private HealthStatusBean status = new HealthStatusBean();
-    
+
     @JsonProperty(value = "IPv4Address")
     private IpAddress ipAddress;
 
@@ -94,7 +103,6 @@ public class SwitchNodeEntity {
     public IpAddress getIpAddress() {
         return ipAddress;
     }
-    
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -109,5 +117,4 @@ class IpAddress {
     public void setAddress(String address) {
         this.address = address;
     }
-    
 }

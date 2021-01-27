@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.service.bean;
 
 import com.integrien.alive.common.adapter3.MetricData;
@@ -8,57 +12,68 @@ import java.util.Map;
 
 /**
  * Interface for tree node objects, such as node, processor, drive and so on.
- * @author harbor
  *
+ * @author harbor
+ * @since 2019-02-18
  */
 public interface TreeNodeResource {
-    
-   /**
-    * 
-    * @param identifierPrefix
-    * @param adapterKind
-    * @param metricsByResource
-    * @return
-    */
-    public ResourceKey convert2Resource(String identifierPrefix, String adapterKind, 
-            Map<ResourceKey, List<MetricData>> metricsByResource);
-    
     /**
-     * 
-     * @return
+     * 计算Resource的resourceKey
+     *
+     * @param identifierPrefix identifierPrefix
+     * @param adapterKind adapterKind
+     * @param metricsByResource metricsByResource
+     * @return resourceKey
      */
-    public String getResourceName();
-    
+    ResourceKey convert2Resource(
+            String identifierPrefix, String adapterKind, Map<ResourceKey, List<MetricData>> metricsByResource);
+
     /**
-     * 
-     * @return
+     * 获取resource名称
+     *
+     * @return resourceName
      */
-    public String getResourceLabel();
-    
+    String getResourceName();
+
     /**
-     * 
-     * @return
+     * 获取resource 标签
+     *
+     * @return resourceLabel
      */
-    public String getResourceIdentifier();
-    
+    String getResourceLabel();
+
     /**
-     * 
-     * @param child
+     * 获取resource标识符
+     *
+     * @return resource Identifier
      */
-    public void addChild(TreeNodeResource child);
-    
+    String getResourceIdentifier();
+
     /**
-     * 
-     * @return
+     * 添加子子资源
+     *
+     * @param child 子资源
      */
-    public List<TreeNodeResource> getChildren();
-    
+    void addChild(TreeNodeResource child);
+
     /**
-     * 
-     * @param children
+     * 获取子资源
+     *
+     * @return list
      */
-    public void addChildren(List<TreeNodeResource> children);
-    
-    public boolean allowRename();
-    
+    List<TreeNodeResource> getChildren();
+
+    /**
+     * 添加子资源集合
+     *
+     * @param children 子资源集合
+     */
+    void addChildren(List<TreeNodeResource> children);
+
+    /**
+     * 资源是否允许重命名
+     *
+     * @return boolean
+     */
+    boolean allowRename();
 }

@@ -1,38 +1,46 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.service.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * BoardBean
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BoardBean extends BaseResource {
-
     @JsonProperty(value = "DeviceID")
     private String deviceID;
-    
+
     @JsonProperty(value = "Id")
     private String id;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "CardNo")
     private int cardNo;
-    
+
     @JsonProperty(value = "DeviceLocator")
     private String deviceLocator;
-    
+
     @JsonProperty(value = "DeviceType")
     private String deviceType;
-    
+
     @JsonProperty(value = "Manufacturer")
     private String manufacturer;
-    
+
     @JsonProperty(value = "BoardName")
     private String boardName;
-    
+
     @JsonProperty(value = "BoardId")
     private String boardId;
-    
+
     @JsonProperty(value = "Status")
     private HealthStatusBean status = new HealthStatusBean();
 
@@ -119,7 +127,6 @@ public class BoardBean extends BaseResource {
 
     @Override
     public String getResourceLabel() {
-        
         return this.name;
     }
 
@@ -133,21 +140,19 @@ public class BoardBean extends BaseResource {
         setStringProperty("deviceID", this.getDeviceID());
         setStringProperty("bid", this.getId());
         setStringProperty("name", this.getName());
-        setIntProperty("cardNo", this.getCardNo()+"");
+        setIntProperty("cardNo", this.getCardNo() + "");
         setStringProperty("deviceLocator", this.getDeviceLocator());
         setStringProperty("deviceType", this.getDeviceType());
         setStringProperty("manufacturer", this.getManufacturer());
         setStringProperty("boardName", this.getBoardName());
         setStringProperty("boardId", this.getBoardId());
-        
+
         setStringMetric("healthStatus", this.status.getHealth());
-        setStringMetric("healthState", this.status.getState());  
-        
+        setStringMetric("healthState", this.status.getState());
     }
 
     @Override
     public boolean allowRename() {
         return false;
     }
-
 }

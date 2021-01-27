@@ -1,20 +1,29 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.api.entity;
+
+import com.huawei.fd.service.bean.ProcessorBean;
+import com.huawei.fd.service.bean.TreeNodeResource;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.huawei.fd.service.bean.ProcessorBean;
-import com.huawei.fd.service.bean.TreeNodeResource;
-
+/**
+ * ProcessorListEntity
+ *
+ * @since 2019-02-18
+ */
 public class ProcessorListEntity extends BaseEntity {
-    
     @JsonProperty(value = "Members")
     private List<ProcessorBean> members = new ArrayList<>();
 
     @JsonProperty(value = "Members@odata.count")
     private int count;
-    
+
     @JsonProperty(value = "TotalCount")
     private int totalCount;
 

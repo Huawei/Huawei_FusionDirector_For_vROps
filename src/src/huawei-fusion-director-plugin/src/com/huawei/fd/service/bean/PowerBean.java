@@ -1,45 +1,53 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.service.bean;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+/**
+ * PowerBean
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PowerBean extends BaseResource {
-    
     @JsonProperty(value = "MemberId")
     private String memberId;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "Status")
     private HealthStatusBean status = new HealthStatusBean();
-    
+
     @JsonProperty(value = "PowerSupplyType")
     private String powerSupplyType;
-    
+
     @JsonProperty(value = "SerialNumber")
     private String serialNumber;
-    
+
     @JsonProperty(value = "PowerCapacityWatts")
     private int powerCapacity;
-    
+
     @JsonProperty(value = "Model")
     private String model;
-    
+
     @JsonProperty(value = "FirmwareVersion")
     private String firmwareVersion;
-    
+
     @JsonProperty(value = "PartNumber")
     private String partNumber;
-    
+
     @JsonProperty(value = "Manufacturer")
     private String manufacturer;
-    
+
     @JsonProperty(value = "Oem")
     private PowerOEM oem;
 
@@ -140,7 +148,6 @@ public class PowerBean extends BaseResource {
 
     @Override
     public void setAttributes() {
-        // TODO Auto-generated method stub
         setStringProperty("name", this.getName());
         setStringProperty("memberId", this.getMemberId());
         setStringProperty("manufacturer", this.getManufacturer());
@@ -148,16 +155,16 @@ public class PowerBean extends BaseResource {
         setStringProperty("firmwareVersion", this.getFirmwareVersion());
         setStringProperty("partNumber", this.getPartNumber());
         setStringProperty("powerSupplyType", this.getPowerSupplyType());
-        setIntMeric("powerCapacity", this.getPowerCapacity()+"");
+        setIntMeric("powerCapacity", this.getPowerCapacity() + "");
         setStringProperty("serialNumber", this.serialNumber);
-        
+
         setStringMetric("healthStatus", this.status.getHealth());
-        
-        //enumerable values: Enabled, Absent,Disabled,Unknown
-        setStringMetric("healthState", this.status.getState());  
-        
-        //oem
-        setStringProperty("protocol", this.oem.getInfo().get("Protocol")); 
+
+        // enumerable values: Enabled, Absent,Disabled,Unknown
+        setStringMetric("healthState", this.status.getState());
+
+        // oem
+        setStringProperty("protocol", this.oem.getInfo().get("Protocol"));
         setStringProperty("deviceLocator", this.oem.getInfo().get("DeviceLocator"));
         setStringProperty("position", this.oem.getInfo().get("Position"));
         setStringProperty("activeStandby", this.oem.getInfo().get("ActiveStandby"));
@@ -167,14 +174,12 @@ public class PowerBean extends BaseResource {
     public boolean allowRename() {
         return true;
     }
-
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class PowerOEM implements Serializable {
-    
     @JsonProperty(value = "Huawei")
-    private Map<String,String> info = new HashMap<String,String>();
+    private Map<String, String> info = new HashMap<String, String>();
 
     public Map<String, String> getInfo() {
         return info;
@@ -183,6 +188,4 @@ class PowerOEM implements Serializable {
     public void setInfo(Map<String, String> info) {
         this.info = info;
     }
-    
 }
-

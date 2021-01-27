@@ -1,54 +1,63 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.service.bean;
+
+import com.huawei.fd.util.ConvertUtil;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.huawei.fd.util.ConvertUtil;
 
+/**
+ * EnclosureManagerBean
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EnclosureManagerBean extends BaseResource {
-    
     @JsonProperty(value = "Index")
     private Integer index;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "State")
     private String state;
-    
+
     @JsonProperty(value = "ProductName")
     private String productName;
-    
+
     @JsonProperty(value = "SerialNumber")
     private String serialNumber;
-    
+
     @JsonProperty(value = "PhysicalUUID")
     private String physicalUUID;
-    
+
     @JsonProperty(value = "FirmwareVersion")
     private String firmwareVersion;
-    
+
     @JsonProperty(value = "CPLDVersion")
     private String cpldVersion;
-    
+
     @JsonProperty(value = "Health")
     private String health;
-    
+
     @JsonProperty(value = "ApplianceFirmwareVersion")
     private String applianceFirmwareVersion;
-    
+
     @JsonProperty(value = "ApplianceBIOSVersion")
     private String applianceBIOSVersion;
-    
+
     @JsonProperty(value = "AppliancePowerState")
     private String appliancePowerState;
-    
+
     @JsonProperty(value = "StaticIPv4Address")
     private InternetAddress staticIPv4Address;
-    
+
     @JsonProperty(value = "FloatIPv4Address")
     private InternetAddress floatIPv4Address;
-    
+
     @JsonProperty(value = "ApplianceIPv4Address")
     private InternetAddress applianceIPv4Address;
 
@@ -191,8 +200,8 @@ public class EnclosureManagerBean extends BaseResource {
     public void setAttributes() {
         setIntProperty("index", this.index + "");
         setStringProperty("name", this.name);
-        
-        //enumerable values: Enabled, Absent,Disabled,Unknown,StandbySpare
+
+        // enumerable values: Enabled, Absent,Disabled,Unknown,StandbySpare
         setStringMetric("state", this.state);
         setStringProperty("productName", this.productName);
         setStringProperty("serialNumber", this.serialNumber);
@@ -203,7 +212,7 @@ public class EnclosureManagerBean extends BaseResource {
         setStringProperty("applianceBIOSVersion", this.applianceBIOSVersion);
         setStringProperty("appliancePowerState", this.appliancePowerState);
         setStringProperty("firmwareVersion", this.firmwareVersion);
-        
+
         InternetAddress appAddress = this.getApplianceIPv4Address();
         if (appAddress != null) {
             setStringProperty("applianceAddress", appAddress.getAddress());
@@ -211,7 +220,7 @@ public class EnclosureManagerBean extends BaseResource {
             setStringProperty("applianceGateway", appAddress.getGateway());
             setStringProperty("applianceAddressOrigin", appAddress.getAddressOrigin());
         }
-        
+
         InternetAddress staticAddress = this.getStaticIPv4Address();
         if (staticAddress != null) {
             setStringProperty("staticAddress", staticAddress.getAddress());
@@ -219,43 +228,40 @@ public class EnclosureManagerBean extends BaseResource {
             setStringProperty("staticGateway", staticAddress.getGateway());
             setStringProperty("staticAddressOrigin", staticAddress.getAddressOrigin());
         }
-        
-        if ("StandbySpare".equals(this.state) == false) {
-        	InternetAddress floatAddress = this.getFloatIPv4Address();
-        	if (floatAddress != null) {
-        		setStringProperty("floatAddress", floatAddress.getAddress());
-        		setStringProperty("floatSubnetMask", floatAddress.getSubnetMask());
-        		setStringProperty("floatGateway", floatAddress.getGateway());
-        		setStringProperty("floatAddressOrigin", floatAddress.getAddressOrigin());
-        	}
-        } else {
-        	setStringProperty("floatAddress", "");
-    		setStringProperty("floatSubnetMask", "");
-    		setStringProperty("floatGateway", "");
-    		setStringProperty("floatAddressOrigin", "");
-        }
 
+        if ("StandbySpare".equals(this.state) == false) {
+            InternetAddress floatAddress = this.getFloatIPv4Address();
+            if (floatAddress != null) {
+                setStringProperty("floatAddress", floatAddress.getAddress());
+                setStringProperty("floatSubnetMask", floatAddress.getSubnetMask());
+                setStringProperty("floatGateway", floatAddress.getGateway());
+                setStringProperty("floatAddressOrigin", floatAddress.getAddressOrigin());
+            }
+        } else {
+            setStringProperty("floatAddress", "");
+            setStringProperty("floatSubnetMask", "");
+            setStringProperty("floatGateway", "");
+            setStringProperty("floatAddressOrigin", "");
+        }
     }
 
     @Override
     public boolean allowRename() {
         return true;
     }
-
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 class InternetAddress {
-    
     @JsonProperty(value = "Address")
     private String address;
-    
+
     @JsonProperty(value = "SubnetMask")
     private String subnetMask;
-    
+
     @JsonProperty(value = "Gateway")
     private String gateway;
-    
+
     @JsonProperty(value = "AddressOrigin")
     private String addressOrigin;
 
@@ -290,5 +296,4 @@ class InternetAddress {
     public void setAddressOrigin(String addressOrigin) {
         this.addressOrigin = addressOrigin;
     }
-    
 }

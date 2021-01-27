@@ -1,9 +1,17 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.api.wrapper;
 
 import com.huawei.fd.service.bean.FusionDirector;
 
+/**
+ * RaidCardListApiWrapper
+ *
+ * @since 2019-02-18
+ */
 public class RaidCardListApiWrapper extends AbstractApiWrapper {
-
     public RaidCardListApiWrapper(FusionDirector fd) {
         super(fd);
     }
@@ -12,5 +20,4 @@ public class RaidCardListApiWrapper extends AbstractApiWrapper {
     public String getResourcePath() {
         return "/redfish/v1/rich/Nodes/{0}/Storage/RaidCard";
     }
-
 }

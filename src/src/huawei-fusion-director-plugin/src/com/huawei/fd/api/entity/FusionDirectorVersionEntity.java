@@ -1,23 +1,31 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.api.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * FusionDirectorVersionEntity
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FusionDirectorVersionEntity extends BaseEntity {
-    
     @JsonProperty(value = "CurrentVersion")
     private String currentVersion;
-    
+
     @JsonProperty(value = "InActiveVersion")
     private String inActiveVersion;
-    
+
     @JsonProperty(value = "MinimunVersion")
     private String minimunVersion;
-    
+
     @JsonProperty(value = "UpgradeTime")
     private String upgradeTime;
-    
+
     @JsonProperty(value = "ActivatedTime")
     private String activatedTime;
 
@@ -60,5 +68,4 @@ public class FusionDirectorVersionEntity extends BaseEntity {
     public void setActivatedTime(String activatedTime) {
         this.activatedTime = activatedTime;
     }
-
 }

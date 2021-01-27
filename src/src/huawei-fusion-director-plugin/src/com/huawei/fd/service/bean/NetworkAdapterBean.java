@@ -1,47 +1,55 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.service.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * NetworkAdapterBean
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NetworkAdapterBean extends BaseResource {
-         
     @JsonProperty(value = "Id")
     private String id;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "DeviceID")
     private String deviceID;
-    
+
     @JsonProperty(value = "Manufacturer")
     private String manufacturer;
-    
+
     @JsonProperty(value = "Model")
     private String model;
-    
+
     @JsonProperty(value = "DriverName")
     private String driverName;
-    
+
     @JsonProperty(value = "DriverVersion")
     private String driverVersion;
-    
+
     @JsonProperty(value = "DeviceLocator")
     private String deviceLocator;
-    
+
     @JsonProperty(value = "CardName")
     private String cardName;
-    
+
     @JsonProperty(value = "CardManufacturer")
     private String cardManufacturer;
-    
+
     @JsonProperty(value = "CardModel")
     private String cardModel;
-    
+
     @JsonProperty(value = "Position")
     private String position;
-    
+
     @JsonProperty(value = "Status")
     private HealthStatusBean status = new HealthStatusBean();
 
@@ -178,15 +186,13 @@ public class NetworkAdapterBean extends BaseResource {
         setStringProperty("position", this.getPosition());
         setStringProperty("cardName", this.getCardName());
         setStringMetric("healthStatus", this.status.getHealth());
-        
-        //enumerable values: Enabled, Absent,Disabled,Unknown
-        setStringMetric("healthState", this.status.getState());  
-        
+
+        // enumerable values: Enabled, Absent,Disabled,Unknown
+        setStringMetric("healthState", this.status.getState());
     }
 
     @Override
     public boolean allowRename() {
         return true;
     }
-    
 }

@@ -1,33 +1,35 @@
-package com.huawei.fd.util;
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
 
+package com.huawei.fd.util;
 
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 
 /**
- * 
- * @author HLuo
+ * JsonValidator
  *
+ * @since 2019-02-18
  */
 public class JsonValidator {
- 
     private CharacterIterator it;
-    private char              c;
-    private int               col;
- 
-    public JsonValidator(){
-        
-    }
+    private char c;
+    private int col;
+
+    public JsonValidator() {}
 
     public boolean validate(String input) {
         String temp = input.trim();
         boolean ret = valid(temp);
         return ret;
     }
- 
+
     private boolean valid(String input) {
-        if ("".equals(input)) return true;
- 
+        if ("".equals(input)) {
+            return true;
+        }
+
         boolean ret = true;
         it = new StringCharacterIterator(input);
         c = it.first();
@@ -40,19 +42,21 @@ public class JsonValidator {
                 ret = error("end", col);
             }
         }
- 
+
         return ret;
     }
- 
+
     private boolean value() {
         return literal("true") || literal("false") || literal("null") || string() || number() || object() || array();
     }
- 
+
     private boolean literal(String text) {
         CharacterIterator ci = new StringCharacterIterator(text);
         char t = ci.first();
-        if (c != t) return false;
- 
+        if (c != t) {
+            return false;
+        }
+
         int start = col;
         boolean ret = true;
         for (t = ci.next(); t != CharacterIterator.DONE; t = ci.next()) {
@@ -65,30 +69,36 @@ public class JsonValidator {
         if (!ret) error("literal " + text, start);
         return ret;
     }
- 
+
     private boolean array() {
         return aggregate('[', ']', false);
     }
- 
+
     private boolean object() {
         return aggregate('{', '}', true);
     }
- 
+
     private boolean aggregate(char entryCharacter, char exitCharacter, boolean prefix) {
-        if (c != entryCharacter) return false;
+        if (c != entryCharacter) {
+            return false;
+        }
         nextCharacter();
         skipWhiteSpace();
         if (c == exitCharacter) {
             nextCharacter();
             return true;
         }
- 
-        for (;;) {
+
+        for (; ; ) {
             if (prefix) {
                 int start = col;
-                if (!string()) return error("string", start);
+                if (!string()) {
+                    return error("string", start);
+                }
                 skipWhiteSpace();
-                if (c != ':') return error("colon", col);
+                if (c != ':') {
+                    return error("colon", col);
+                }
                 nextCharacter();
                 skipWhiteSpace();
             }
@@ -106,28 +116,34 @@ public class JsonValidator {
             }
             skipWhiteSpace();
         }
- 
+
         nextCharacter();
         return true;
     }
- 
+
     private boolean number() {
-        if (!Character.isDigit(c) && c != '-') return false;
+        if (!Character.isDigit(c) && c != '-') {
+            return false;
+        }
         int start = col;
-        if (c == '-') nextCharacter();
+        if (c == '-') {
+            nextCharacter();
+        }
         if (c == '0') {
             nextCharacter();
         } else if (Character.isDigit(c)) {
-            while (Character.isDigit(c))
+            while (Character.isDigit(c)) {
                 nextCharacter();
+            }
         } else {
             return error("number", start);
         }
         if (c == '.') {
             nextCharacter();
             if (Character.isDigit(c)) {
-                while (Character.isDigit(c))
+                while (Character.isDigit(c)) {
                     nextCharacter();
+                }
             } else {
                 return error("number", start);
             }
@@ -138,18 +154,19 @@ public class JsonValidator {
                 nextCharacter();
             }
             if (Character.isDigit(c)) {
-                while (Character.isDigit(c))
+                while (Character.isDigit(c)) {
                     nextCharacter();
+                }
             } else {
                 return error("number", start);
             }
         }
         return true;
     }
- 
+
     private boolean string() {
         if (c != '"') return false;
- 
+
         int start = col;
         boolean escaped = false;
         for (nextCharacter(); c != CharacterIterator.DONE; nextCharacter()) {
@@ -167,39 +184,40 @@ public class JsonValidator {
         }
         return error("quoted string", start);
     }
- 
+
     private boolean escape() {
         int start = col - 1;
         if (" \\\"/bfnrtu".indexOf(c) < 0) {
             return error("escape sequence  \\\",\\\\,\\/,\\b,\\f,\\n,\\r,\\t  or  \\uxxxx ", start);
         }
         if (c == 'u') {
-            if (!ishex(nextCharacter()) || !ishex(nextCharacter()) || !ishex(nextCharacter())
-                || !ishex(nextCharacter())) {
+            if (!ishex(nextCharacter())
+                    || !ishex(nextCharacter())
+                    || !ishex(nextCharacter())
+                    || !ishex(nextCharacter())) {
                 return error("unicode escape sequence  \\uxxxx ", start);
             }
         }
         return true;
     }
- 
+
     private boolean ishex(char d) {
         return "0123456789abcdefABCDEF".indexOf(c) >= 0;
     }
- 
+
     private char nextCharacter() {
         c = it.next();
         ++col;
         return c;
     }
- 
+
     private void skipWhiteSpace() {
         while (Character.isWhitespace(c)) {
             nextCharacter();
         }
     }
- 
+
     private boolean error(String type, int col) {
         return false;
     }
-    
 }

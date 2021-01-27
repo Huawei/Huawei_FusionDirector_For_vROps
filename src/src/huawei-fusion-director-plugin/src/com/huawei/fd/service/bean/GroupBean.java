@@ -1,36 +1,54 @@
-package com.huawei.fd.service.bean;
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
 
-import java.util.ArrayList;
-import java.util.List;
+package com.huawei.fd.service.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * GroupBean
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GroupBean extends BaseResource {
-
     @JsonProperty(value = "ID")
     private int id;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "Description")
     private String description;
-    
+
     @JsonProperty(value = "Type")
     private String type;
-    
+
     @JsonProperty(value = "Enabled")
     private boolean enabled;
-    
+
     @JsonProperty(value = "Members")
     private List<LinkedNode> linkNodes = new ArrayList<>();
 
+    /**
+     * 设置关联group
+     *
+     * @param linkGroups linkGroups
+     */
     public void setLinkGroups(List<LinkedNode> linkGroups) {
         this.linkNodes = linkGroups;
     }
-    
+
+    /**
+     * 获取关联节点Id
+     *
+     * @return link Nodes
+     */
     public List<String> getLinkedNodeIds() {
         List<String> linkedList = new ArrayList<>();
         for (LinkedNode node : linkNodes) {
@@ -91,40 +109,38 @@ public class GroupBean extends BaseResource {
 
     @Override
     public String getResourceIdentifier() {
-        return this.getId()+"";
+        return this.getId() + "";
     }
 
     @Override
     public void setAttributes() {
-        setIntProperty("gid", this.getId()+"");
+        setIntProperty("gid", this.getId() + "");
         setStringProperty("name", this.getName());
         setStringProperty("description", this.getDescription());
         setStringProperty("type", this.getType());
-        setStringProperty("enabled", this.isEnabled()+"");
+        setStringProperty("enabled", this.isEnabled() + "");
     }
 
     @Override
     public boolean allowRename() {
         return true;
     }
-    
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class LinkedNode{
-    
+class LinkedNode {
     @JsonProperty(value = "DeviceID")
     private String deviceID;
-    
+
     @JsonProperty(value = "UUID")
     private String uuid;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "Model")
     private String model;
-    
+
     @JsonProperty(value = "SerialNumber")
     private String serialNumber;
 
@@ -167,5 +183,4 @@ class LinkedNode{
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
     }
-    
 }

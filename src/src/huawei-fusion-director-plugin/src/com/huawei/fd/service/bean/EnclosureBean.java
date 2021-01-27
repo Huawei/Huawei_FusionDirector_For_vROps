@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.service.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -6,75 +10,79 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * EnclosureBean
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EnclosureBean extends BaseResource {
-    
     @JsonProperty(value = "DeviceID")
     private String deviceID;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "Type")
     private String type;
-    
+
     @JsonProperty(value = "CreatedAt")
     private String createdAt;
-    
+
     @JsonProperty(value = "UpdatedAt")
     private String updatedAt;
-    
+
     @JsonProperty(value = "Description")
     private String description;
-    
+
     @JsonProperty(value = "Hostname")
     private String hostName;
-    
+
     @JsonProperty(value = "Port")
     private int port;
-    
+
     @JsonProperty(value = "Protocol")
     private String protocol;
-    
+
     @JsonProperty(value = "ChassisID")
     private String chassisID;
-    
+
     @JsonProperty(value = "ChassisType")
     private String chassisType;
-    
+
     @JsonProperty(value = "SerialNumber")
     private String serialNumber;
-    
+
     @JsonProperty(value = "PartNumber")
     private String partNumber;
-    
+
     @JsonProperty(value = "UIDState")
     private String uidState;
-    
+
     @JsonProperty(value = "State")
     private String state;
-    
+
     @JsonProperty(value = "StateReason")
     private String stateReason;
-    
+
     @JsonProperty(value = "Health")
     private String health;
-    
+
     @JsonProperty(value = "LCDVersion")
     private String lcdVersion;
-    
+
     @JsonProperty(value = "EnclosureProfileUsageState")
     private String enclosureProfileUsageState;
-    
+
     @JsonProperty(value = "Slot")
     private ServerSlotInfo slotInfo;
-    
+
     private String serverHealth;
-    
+
     private String switchHealth;
-    
+
     private String healthManager;
-    
+
     public String getServerHealth() {
         return serverHealth;
     }
@@ -276,91 +284,123 @@ public class EnclosureBean extends BaseResource {
 
     @Override
     public void setAttributes() {
-        
         setStringProperty("deviceID", this.getDeviceID());
         setStringProperty("name", this.getName());
         setStringProperty("type", this.getType());
         setStringProperty("description", this.getDescription());
         setStringProperty("hostname", this.getHostName());
-        setIntProperty("port", this.getPort()+"");
+        setIntProperty("port", this.getPort() + "");
         setStringProperty("protocol", this.getProtocol());
         setStringProperty("chassisID", this.getChassisID());
         setStringProperty("chassisType", this.getChassisType());
-        
+
         setStringProperty("serialNumber", this.getSerialNumber());
-        setStringProperty("partNumber", this.getPartNumber());  
-        
-        setStringProperty("UIDState", this.getUIDState());  
-        
-        //enumerable values: Ready,Adding,Locked  Unmanaged,Unknown
-        setStringMetric("state", this.getState());  
-        setStringProperty("stateReason", this.getStateReason());  
-        setStringMetric("healthStatus", this.getHealth());  
-        setStringProperty("LCDVersion", this.getLCDVersion()); 
-        setStringProperty("enclosureProfileUsageState", this.getEnclosureProfileUsageState()); 
-        
+        setStringProperty("partNumber", this.getPartNumber());
+
+        setStringProperty("UIDState", this.getUIDState());
+
+        // enumerable values: Ready,Adding,Locked  Unmanaged,Unknown
+        setStringMetric("state", this.getState());
+        setStringProperty("stateReason", this.getStateReason());
+        setStringMetric("healthStatus", this.getHealth());
+        setStringProperty("LCDVersion", this.getLCDVersion());
+        setStringProperty("enclosureProfileUsageState", this.getEnclosureProfileUsageState());
+
         String healthEnum = "";
-        
+
         switch (this.health) {
-        case "OK" : {
-            healthEnum = "0";
+            case "OK": {
+                healthEnum = "0";
+            }
+            break;
+            case "Unknown": {
+                healthEnum = "1";
+            }
+            break;
+            case "Warning": {
+                healthEnum = "2";
+            }
+            break;
+            case "Immediate": {
+                healthEnum = "3";
+            }
+            break;
+            case "Critical": {
+                healthEnum = "4";
+            }
+            break;
+            default: {
+                healthEnum = "0";
+            }
+            break;
         }
-        break;
-        case "Unknown" : {
-            healthEnum = "1";
-        }
-        break;
-        case "Warning" : {
-            healthEnum = "2";
-        }
-        break;
-        case "Immediate" : {
-            healthEnum = "3";
-        }
-        break;
-        case "Critical" : {
-            healthEnum = "4";
-        }
-        break;
-        default : {
-            healthEnum = "0";
-        }
-        break;
-        
-        }
-        
+
         setIntMeric("healthEnum", healthEnum);
-        
+
         setStringMetric("serverHealth", serverHealth);
         setStringMetric("switchHealth", switchHealth);
         setStringMetric("healthManager", healthManager);
-        
     }
-    
+
+    /**
+     * 获取LinkedNode Id
+     *
+     * @return list
+     */
     public List<String> getLinkedNodeIds() {
         return this.slotInfo.getLinkedNodeIds();
     }
-    
+
+    /**
+     * 获取SwitchNode Id
+     *
+     * @return list
+     */
     public List<String> getLinkedSwitchNodeIds() {
         return this.slotInfo.getLinkedSwitchNodeIds();
     }
-    
+
+    /**
+     * 获取电源对象
+     *
+     * @return 数组
+     */
     public EnclosurePowerBean[] getPowers() {
         return slotInfo.getPowerSlot();
     }
-    
+
+    /**
+     * 获取风扇对象
+     *
+     * @return 数组
+     */
     public EnclosureFanBean[] getFans() {
         return slotInfo.getFanSlot();
     }
-    
+
+    /**
+     * 获取manager对象
+     *
+     * @return 数组
+     */
     public EnclosureManagerBean[] getManagers() {
         return slotInfo.getManagerSlot();
     }
-    
+
+    /**
+     * 获取ServerSlot对象
+     *
+     * @return 数组
+     */
     public SlotBean[] getServerSlots() {
         return slotInfo.getServerSlot();
     }
-    
+
+    /**
+     * 获取SwitchSlot对象
+     *
+     * @return 数组
+     */
     public SlotBean[] getSwitchSlots() {
         return slotInfo.getSwitchSlot();
     }
@@ -368,36 +408,31 @@ public class EnclosureBean extends BaseResource {
     @Override
     public boolean allowRename() {
         return true;
-    } 
-
+    }
 }
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class ServerSlotInfo{
-    
+class ServerSlotInfo {
     @JsonProperty(value = "ServerSlot")
     private SlotBean[] serverSlot = {};
-    
+
     @JsonProperty(value = "SwitchSlot")
     private SlotBean[] switchSlot = {};
-    
+
     @JsonProperty(value = "ManagerSlot")
     private EnclosureManagerBean[] managerSlot = {};
-    
+
     @JsonProperty(value = "FanSlot")
     private EnclosureFanBean[] fanSlot = {};
-    
+
     @JsonProperty(value = "PowerSlot")
     private EnclosurePowerBean[] powerSlot = {};
 
     public SlotBean[] getServerSlot() {
         return serverSlot;
     }
-    
-    
 
     public void setServerSlot(SlotBean[] serverSlots) {
-        
         for (SlotBean slot : serverSlots) {
             slot.setResourceName("emptyServerSlot");
         }
@@ -439,6 +474,11 @@ class ServerSlotInfo{
         this.powerSlot = powerSlot;
     }
 
+    /**
+     * 获取LinkedNode Id
+     *
+     * @return list
+     */
     public List<String> getLinkedNodeIds() {
         List<String> linkedList = new ArrayList<>();
         for (SlotBean node : serverSlot) {
@@ -449,7 +489,12 @@ class ServerSlotInfo{
         }
         return linkedList;
     }
-    
+
+    /**
+     * 获取SwitchNode Id
+     *
+     * @return list
+     */
     public List<String> getLinkedSwitchNodeIds() {
         List<String> linkedList = new ArrayList<>();
         for (SlotBean node : switchSlot) {
@@ -460,5 +505,4 @@ class ServerSlotInfo{
         }
         return linkedList;
     }
-    
 }

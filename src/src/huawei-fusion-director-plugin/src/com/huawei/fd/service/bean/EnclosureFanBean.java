@@ -1,27 +1,36 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2019-2021. All rights reserved.
+ */
+
 package com.huawei.fd.service.bean;
+
+import com.huawei.fd.util.ConvertUtil;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.huawei.fd.util.ConvertUtil;
 
+/**
+ * EnclosureFanBean
+ *
+ * @since 2019-02-18
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class EnclosureFanBean extends BaseResource {
-    
     @JsonProperty(value = "Index")
     private Integer index;
-    
+
     @JsonProperty(value = "Name")
     private String name;
-    
+
     @JsonProperty(value = "State")
     private String state;
-    
+
     @JsonProperty(value = "PcbVersion")
     private String pcbVersion;
-    
+
     @JsonProperty(value = "SoftwareVersion")
     private String softwareVersion;
-    
+
     @JsonProperty(value = "Health")
     private String health;
 
@@ -92,18 +101,16 @@ public class EnclosureFanBean extends BaseResource {
     public void setAttributes() {
         setIntProperty("index", this.index + "");
         setStringProperty("name", this.name);
-        
-        //enumerable values: Enabled, Absent,Disabled,Unknown
+
+        // enumerable values: Enabled, Absent,Disabled,Unknown
         setStringMetric("state", this.state);
         setStringProperty("pcbVersion", this.pcbVersion);
         setStringProperty("softwareVersion", this.softwareVersion);
         setStringMetric("healthStatus", this.health);
-
     }
 
     @Override
     public boolean allowRename() {
         return false;
     }
-
 }
