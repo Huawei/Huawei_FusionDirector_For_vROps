@@ -1,6 +1,7 @@
 package com.huawei.adapter.bean;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -60,31 +61,25 @@ public class ResourceKeyCache {
 
         return false;
     }
-    
-    public static List<ResourceKey> getRemovedKeys(String prefix) {
 
-//        for (ResourceIdentifierConfig cfg : key.getIdentifiers()) {
-//            if (KEY_EXIST_MAP.containsKey(cfg.getValue())) {
-//                if (KEY_EXIST_MAP.get(cfg.getValue()).equals("N")) {
-//                    KEY_EXIST_MAP.remove(cfg.getValue());
-//
-//                }
-//            }
-//        }
+    /**
+     * 查询删除的resourceKey
+     *
+     * @param prefix key的前缀
+     * @return 被删除的key的列表
+     */
+    public static List<ResourceKey> getRemovedKeys(String prefix) {
         List<ResourceKey> removeList = new ArrayList<>();
-        
-        for (Entry<String,String> entry : KEY_EXIST_MAP.entrySet()) {
-            if (entry.getKey().startsWith(prefix) && entry.getValue().equals("N")) {
+
+        Iterator<Entry<String, String>> it = KEY_EXIST_MAP.entrySet().iterator();
+        while (it.hasNext()) {
+            Entry<String, String> entry = it.next();
+            if ("N".equals(entry.getValue()) && entry.getKey().startsWith(prefix)) {
                 removeList.add(RESOURCE_KEY_MAP.get(entry.getKey()));
                 RESOURCE_KEY_MAP.remove(entry.getKey());
-                KEY_EXIST_MAP.remove(entry.getKey());
+                it.remove();
             }
         }
-        
-        
         return removeList;
-
-//        return false;
     }
-
 }

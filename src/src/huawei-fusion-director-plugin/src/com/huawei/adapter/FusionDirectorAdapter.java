@@ -5,6 +5,8 @@ package com.huawei.adapter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -63,10 +65,7 @@ public class FusionDirectorAdapter extends AdapterBase {
     
     // Stores the relationships for each resource
     private Map<ResourceKey, List<ResourceKey>> relationshipsByResource = new LinkedHashMap<>();
-    
-    //key map for device name to resource key
-//    private Map<String, ResourceKey> deviceResourceKeyMap = new LinkedHashMap<>();
-    
+
     private FusionDirectorService service;
 
     /**
@@ -106,19 +105,8 @@ public class FusionDirectorAdapter extends AdapterBase {
      */
     @Override
     public DiscoveryResult onDiscover(DiscoveryParam discParam) {
-
-        // TODO get the adapter instance properties(IdentifierCredentialProperties)
-        // and use it for data collection.
-        // final IdentifierCredentialProperties prop =
-        // new IdentifierCredentialProperties(loggerFactory, adapterInstResource);
-
         logger.info("Inside onDiscover method of FusionDirectorAdapter class");
 
-        // TODO call the external datasource and fetch the data.
-
-        // Create discovery result object for adapter instance resource
-        // DiscoveryResult object holds any new resources
-        // to be added in the system.
         DiscoveryResult discoveryResult = new DiscoveryResult(discParam.getAdapterInstResource());
 
         return discoveryResult;
@@ -140,20 +128,8 @@ public class FusionDirectorAdapter extends AdapterBase {
         if (logger.isInfoEnabled()) {
             logger.info("Inside onCollect method of FusionDirectorAdapter class");
         }
-        
-        // TODO call the external datasource and fetch the data.
-        
-        // Creates automatically the discovery result object when necessary.
-        // For auto-discovery purposes get the discovery result and add new resources or
-        // resource kinds to it.
-        // DiscoveryResult discoveryResult = ...
+
         DiscoveryResult discoveryResult = collectResult.getDiscoveryResult(true);
-        
-        // TODO Add events and metric data using:
-        // ResourceCollectResult#addMetricData(MetricData) and ResourceCollectResult#addEvent(ExternalEvent) or
-        // AdapterBase#addMetricData() and AdapterBase#addEvent() or
-        // MetricDataCache#cacheMetricData(ResourceConfig, MetricData) and MetricDataCache#flushCachedData()
-        
         logger.error("FusionDirector Adapter home dir is: " + FusionDirectorAdapterUtil.getAdapterFolder());
         
         final IdentifierCredentialProperties prop = 
@@ -187,9 +163,7 @@ public class FusionDirectorAdapter extends AdapterBase {
         if ("offline".equals(fusionDirector.getState())) {
             return;
         }
-        
-//        if ("online".equals(fusionDirector.getState())){
-            
+
         List<ResourceKey> removedKeys = ResourceKeyCache.getRemovedKeys(fusionDirector.getPrefix());
         
         logger.error("Count of resource removed is: " + removedKeys.size());
@@ -298,7 +272,6 @@ public class FusionDirectorAdapter extends AdapterBase {
             }
             relationshipsByResource.put(nodeResourceKey, nodeChildKeyList);
             nodeResourceKeyMap.put(node.getDeviceID(), nodeResourceKey);
-//            logger.error("node with device id = " + node.getDeviceID() + " created.");
         }
         
         logger.error( list.size() + " nodes created.");
@@ -375,9 +348,6 @@ public class FusionDirectorAdapter extends AdapterBase {
         for (EnclosureBean enclosure : enclosureList) {
             
             fusionDirectorEnclosureHealthToolkit.pushHealth(enclosure.getHealth());
-            
-//            logger.error("enclosure with device id = " + enclosure.getDeviceID() + " created.");
-            
             List<ResourceKey> encosureChildList = new ArrayList<>();
             
             //serverSlot
@@ -386,19 +356,7 @@ public class FusionDirectorAdapter extends AdapterBase {
             HealthToolkit serverSlotHealthToolkit = new HealthToolkit();
             for (SlotBean slot : enclosure.getServerSlots()) {
                 
-//                ResourceKey key = nodeResourceKeyMap.get(slot.getDeviceID());
                 NodeBean bladeNode = service.getBladeNode(slot.getDeviceID());
-                /**
-                if (bladeNode == null){
-                    NodeBean nodeBean = new NodeBean();
-                    nodeBean.setSlotBean(slot);
-                    ResourceKey slotKey = nodeBean.convert2Resource(idPrefix + enclosure.getDeviceID(), getAdapterKind(), metricsByResource);
-                    
-                    allKeysList.add(slotKey);
-                    serverSlotChildList.add(slotKey);
-                    serverSlotHealthToolkit.pushHealth(slot.getHealthStatus());
-                } else {
-                */ 
                 if (bladeNode != null) {
                     bladeNode.setSlotBean(slot);
                     ResourceKey bladeNodeResourceKey = bladeNode.convert2Resource(idPrefix + enclosure.getDeviceID(), getAdapterKind(), metricsByResource) ;
@@ -428,8 +386,6 @@ public class FusionDirectorAdapter extends AdapterBase {
                     allKeysList.add(bladeNodeResourceKey);
                     serverSlotChildList.add(bladeNodeResourceKey);
                     serverSlotHealthToolkit.pushHealth(service.getNodeHealth(slot.getDeviceID()));
-                    
-//                    logger.error("blade node with device id '" + bladeNode.getDeviceID() + "' created.");
                 }
             }
             
@@ -451,9 +407,6 @@ public class FusionDirectorAdapter extends AdapterBase {
                 ResourceKey key = switchNodeResourceKeyMap.get(slot.getDeviceID());
                 
                 if (key == null){
-//                    ResourceKey slotKey = slot.convert2Resource(idPrefix + enclosure.getDeviceID(), getAdapterKind(), metricsByResource);
-//                    allKeysList.add(slotKey);
-//                    switchSlotChildList.add(slotKey);
                     SwitchNodeBean switchNodeBean = new SwitchNodeBean();
                     switchNodeBean.setSlotBean(slot);
                     ResourceKey slotKey = switchNodeBean.convert2Resource(idPrefix + enclosure.getDeviceID(), getAdapterKind(), metricsByResource);
@@ -551,12 +504,6 @@ public class FusionDirectorAdapter extends AdapterBase {
     @Override
     public void onConfigure(ResourceStatus resStatus,
             ResourceConfig adapterInstResource) {
-
-        // TODO get the adapter instance properties(IdentifierCredentialProperties)
-        // and use it as part of the onCollect
-        // final IdentifierCredentialProperties prop =
-        // new IdentifierCredentialProperties(loggerFactory, adapterInstResource);
-
         if (logger.isInfoEnabled()) {
             logger.info("Inside onConfigure method of FusionDirectorAdapter class");
         }
@@ -579,7 +526,10 @@ public class FusionDirectorAdapter extends AdapterBase {
         FusionDirector fd = getConnection(prop);
         
         try {
-            
+            if (!isValidUrl(fd.getHost(), fd.getPort(), fd.getCertPath())) {
+                throw new FusionDirectorException("invalid host ip");
+            }
+
             if (fd.getCertPath() != null && fd.getCertPath().length() > 0){
                 File certFile = new File(fd.getCertPath());
                 if(certFile.exists() == false){
@@ -602,6 +552,20 @@ public class FusionDirectorAdapter extends AdapterBase {
         }
         return true;
     }
+
+    private boolean isValidUrl(String host, int port, String certPath) {
+        String urlStr = certPath != null ? "https://" : "http://";
+        urlStr += host + ":" + port;
+        URL url;
+        try {
+            url = new URL(urlStr);
+        } catch (MalformedURLException err) {
+            logger.error("invalid url");
+            return false;
+        }
+        return !url.getHost().equalsIgnoreCase("localhost")
+                && !url.getHost().equalsIgnoreCase("127.0.0.1");
+    }
     
     /**
      * 
@@ -616,10 +580,6 @@ public class FusionDirectorAdapter extends AdapterBase {
         String password = prop.getCredential(Constant.KEY_FD_CODE);
         String classifyMethod = prop.getIdentifier(Constant.KEY_CLASSIFY_METHOD, empty);
         String certPath = prop.getIdentifier(Constant.SSL_CERT_PATH, empty);
-//        int interval = prop.getIntIdentifier(Constant.COLLECT_INTERVAL, 5);
-        
-//        logger.error("Collect interval is " + interval + " minutes");
-        
         return new FusionDirector(host, Integer.parseInt(port), username, password, classifyMethod, certPath);
     }
 }

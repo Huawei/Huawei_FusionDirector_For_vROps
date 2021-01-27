@@ -2,7 +2,7 @@
 <solution>
 <managementPack>
 <name>HuaweiFusionDirectorManagementPack</name>
-<version>1.0.16</version>
+<version>1.0.17</version>
 <minimumProductVersion>6.0.0</minimumProductVersion>
 <localizations lang="en">
 <localization lang="en">
