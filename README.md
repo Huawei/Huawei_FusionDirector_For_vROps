@@ -18,7 +18,8 @@ II. Version notice
 
 III. Introduction
 
-    The Huawei_FusionDirector_For_vCenter Plugin is a plug-in integrated in the vROps and used for Huawei Server management. It can be used to connect to multiple FusionDirector and view the servers managed by FusionDirector.
+    The Huawei_FusionDirector_For_vCenter Plugin is a plug-in integrated in the vROps and used for Huawei Server management. 
+    It can be used to connect to multiple FusionDirector and view the servers managed by FusionDirector.
 
 IV. Supported Software Version
     
