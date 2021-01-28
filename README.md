@@ -12,7 +12,9 @@ I. General Information
     
 II. Version notice
 
-    Compatible with vRealize 8.0/8.1, interconnected with FD 1.6.1 SPC2, and upgraded open-source and third-party software versions.
+    1. Compatible with vRealize 8.0/8.1.
+    2. Interconnected with FD 1.6.1 SPC2.
+    3. Upgraded open-source and third-party software versions.
 
 III. Introduction
 
