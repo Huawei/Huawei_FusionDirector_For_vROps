@@ -8,32 +8,35 @@ I. General Information
 
     Name:     Huawei_FusionDirector_For_vROps plugin
     Category: Monitoring 
-    version : 1.0.16
+    version : 2.0.1
     
-II. Description
+II. Version notice
+
+    Compatible with vRealize 8.0/8.1, interconnected with FD 1.6.1 SPC2, and upgraded open-source and third-party software versions.
+
+III. Introduction
 
     The Huawei_FusionDirector_For_vCenter Plugin is a plug-in integrated in the vROps and used for Huawei Server management. It can be used to connect to multiple FusionDirector and view the servers managed by FusionDirector.
 
-III. Supported Software Version
+IV. Supported Software Version
     
-    vROps 6.5/6.6/6.7/7.0
+    vROps 8.0/8.1
     
-IV.Software Requirements
+V. Software Requirements
 
-    FusionDirector 1.5.0
+    FusionDirector 1.6.1SPC2
 
-V. Supported Device
-
-    Huawei Blade Server:        CH121 V5,CH242 V5,CH121 V3,CH242 V3
-    Huawei Rack Server:         1288H V5, 2288H V5, 2488 V5,2488H V5,8100 V5,RH2288H V3
-    Chassis：                   E9000 (MM920)
+VI. Function Description
     
-    For more details about compatible with Huawei Server,Please refer to the Server Devices sheet of excel document of FusionDirector
+    1. Query basic information about servers and chassis components.
+    2. Query the warning information about the server and shelf.
+    3. Query the health status of the server and subrack.
+    4. Querying FusionDirector, Servers, and Chassis Statistics on the Dashboard
 
-VI. Additional Resources
+VII. Additional Resources
 
     For more information consult User Guide: https://github.com/Huawei/Huawei_FusionDirector_For_vROps/tree/master/docs
 
-VII. Open Source Software Notice
+VIII. Open Source Software Notice
 
-    https://github.com/Huawei/Huawei_FusionDirector_For_vROps/blob/master/docs/Open_Source_Software_Notice.doc
+    https://github.com/Huawei/Huawei_FusionDirector_For_vROps/blob/master/docs/Open%20Source%20Software%20Notice.doc
